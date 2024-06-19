@@ -20,7 +20,7 @@ const Hero = () => {
                             transition={{ duration: 2, ease: 'linear', delay: 0.4 }}
                         >
                             Book The
-                            <span className='text-violet-400 tracking-wider'> Sport </span>
+                            <span className='text-primary/75 tracking-wider'> Sport </span>
                             Facilities
                         </motion.h1>
                         <motion.h1 className='text-lg font-normal text-neutral-300 line-clamp-3 text-ellipsis'
@@ -32,7 +32,7 @@ const Hero = () => {
                         </motion.h1>
                     </motion.div>
 
-                    <motion.button className='w-fit bg-violet-700 hover:bg-violet-800 text-neutral-50 font-medium py-3 px-6 rounded-md ease-in-out duration-100'>
+                    <motion.button className='w-fit bg-primary hover:bg-violet-800 text-neutral-50 font-medium py-3 px-6 rounded-md ease-in-out duration-100'>
                         Book Facility Now
                     </motion.button>
                 </motion.div>
