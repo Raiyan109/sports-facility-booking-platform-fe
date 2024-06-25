@@ -32,7 +32,7 @@ const Hero = () => {
                         </motion.h1>
                     </motion.div>
 
-                    <motion.button className='w-fit bg-violet-700 hover:bg-violet-800 text-neutral-50 font-medium py-3 px-6 rounded-md ease-in-out duration-100'>
+                    <motion.button className='booking-btn'>
                         Book Facility Now
                     </motion.button>
                 </motion.div>

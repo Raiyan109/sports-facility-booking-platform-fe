@@ -45,3 +45,9 @@
     background-position: center bottom;
     background-repeat: no-repeat;
 }
+
+@layer utilities {
+    .booking-btn {
+        @apply w-fit bg-violet-700 hover:bg-violet-800 text-neutral-50 font-medium py-3 px-6 rounded-md ease-in-out duration-100
+    }
+}
