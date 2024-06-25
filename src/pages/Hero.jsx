@@ -20,7 +20,7 @@ const Hero = () => {
                             transition={{ duration: 2, ease: 'linear', delay: 0.4 }}
                         >
                             Book The
-                            <span className='text-violet-400 tracking-wider'> Sport </span>
+                            <span className='text-primary/75 tracking-wider'> Sport </span>
                             Facilities
                         </motion.h1>
                         <motion.h1 className='text-lg font-normal text-neutral-300 line-clamp-3 text-ellipsis'
