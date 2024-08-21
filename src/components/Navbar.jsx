@@ -4,14 +4,21 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import logo from '../assets/playtimehub-high-resolution-logo-transparent.png'
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, useCurrentUser } from "../redux/features/auth/authSlice";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dispatch = useDispatch()
+  const user = useSelector(useCurrentUser)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleLogout = () => {
+    dispatch(logout())
+  }
   const activeLink = 'text-primary font-bold flex items-center px-4 -mb-1 text-xl'
   return (
     <div>
@@ -39,9 +46,14 @@ const Navbar = () => {
               </li>
 
               <li className="flex">
-                <Link to='/signUp' className="flex items-center -mb-1">
-                  <Button text='Sign Up' />
-                </Link>
+                {user ?
+                  <Link to='/login' className="flex items-center -mb-1">
+                    <button className="bg-accent text-white px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95" onClick={handleLogout}>Logout</button>
+                  </Link>
+                  :
+                  <Link to='/signUp' className="flex items-center -mb-1">
+                    <Button text='Sign Up' />
+                  </Link>}
               </li>
             </ul>
           </div>
