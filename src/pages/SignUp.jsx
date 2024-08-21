@@ -6,6 +6,8 @@ import { useState } from "react";
 import fetcher from "../api/index";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import heroImg from '../assets/pexels-yogendras31-4747326.jpg'
+import { useSignupMutation } from "../redux/features/auth/authApi";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -16,23 +18,33 @@ const SignUp = () => {
   const [role, setRole] = useState("user");
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
+  const [signup] = useSignupMutation()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      "https://sports-facility-booking-platform-be.vercel.app/api/auth/signup",
-      {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        role,
-      }
-    );
+    const userInfo = {
+      name,
+      email,
+      password,
+      phone,
+      address,
+      role,
+    }
+    await signup(userInfo)
+    // const res = await axios.post(
+    //   "https://sports-facility-booking-platform-be.vercel.app/api/auth/signup",
+    //   {
+    //     name,
+    //     email,
+    //     password,
+    //     phone,
+    //     address,
+    //     role,
+    //   }
+    // );
 
-    const data = await res.data.data;
-    console.log(data);
+    // const data = await res.data.data;
+    // console.log(data);
 
     MySwal.fire({
       title: "Sign up successfully! ",
@@ -40,72 +52,61 @@ const SignUp = () => {
       icon: "success",
     });
     navigate("/login");
-    return data;
   };
   return (
     <>
       <Navbar />
-      <div className=" lg:px-28 md:px-16 sm:px-7 px-4 my-[8ch] flex items-center justify-center flex-col relative">
-        <div className="w-full bg-secondary rounded-md p-12 space-y-16">
-          <h1 className=" text-lg md:text-5xl text-center text-grayText">Sign Up Here</h1>
-          <form className="space-y-7" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-3 gap-x-10 gap-y-10 items-end">
+      <div className="flex justify-center items-center flex-col md:flex-row relative bg-secondary mt-5 lg:mt-10 h-screen rounded-2xl">
+        <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
+          <h1 className=" text-3xl md:text-5xl text-grayText text-center font-bold">Sign Up Here</h1>
+          <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 gap-x-10 gap-y-5 items-end">
               <div>
-                <label className="block mb-2 font-medium text-grayText">Name</label>
+                <label className="block mb-1 text-sm text-grayText">Name</label>
                 <input
                   type="text"
                   onChange={(e) => setName(e.target.value)}
-                  name=""
-                  id=""
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium text-grayText">Email</label>
+                <label className="block mb-1 text-sm text-grayText">Email</label>
                 <input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  name=""
-                  id=""
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium text-grayText">Password</label>
+                <label className="block mb-1 text-sm text-grayText">Password</label>
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
-                  name=""
-                  id=""
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium text-grayText">Phone</label>
+                <label className="block mb-1 text-sm text-grayText">Phone</label>
                 <input
                   type="number"
                   onChange={(e) => setPhone(e.target.value)}
-                  name=""
-                  id=""
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium text-grayText">Address</label>
+                <label className="block mb-1 text-sm text-grayText">Address</label>
                 <input
                   type="text"
                   onChange={(e) => setAddress(e.target.value)}
-                  name=""
-                  id=""
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium text-grayText">Role</label>
+                <label className="block mb-1 text-sm text-grayText">Role</label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-12 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 >
                   <option disabled selected>
                     {" "}
@@ -117,7 +118,8 @@ const SignUp = () => {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <motion.button className="w-fit bg-primary hover:bg-primary/80 text-grayText font-medium py-3 px-6 rounded-md ease-in-out duration-100">
+              {/* w-fit */}
+              <motion.button className="w-full bg-primary hover:bg-primary/80 text-grayText font-medium py-3 px-6 rounded-full ease-in-out duration-100">
                 Sign Up
               </motion.button>
             </div>
@@ -127,6 +129,9 @@ const SignUp = () => {
               or login here
             </Link>
           </div>
+        </div>
+        <div className='hidden lg:block flex-1'>
+          <img src={heroImg} alt="" className='w-full h-[800px] object-cover rounded-2xl' />
         </div>
       </div>
     </>
