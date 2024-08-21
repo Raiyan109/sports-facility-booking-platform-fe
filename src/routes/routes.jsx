@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
 import { Facilities } from "../pages/Facilities";
+import AdminDashboard from "../layout/AdminDashboard";
+import UserDashboard from "../layout/UserDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const routes = createBrowserRouter([
   {
     path: "/forgot-password",
     element: <ForgotPassword />,
+  },
+  {
+    path: "adminDashboard",
+    element: <AdminDashboard />,
+  },
+  {
+    path: "userDashboard",
+    element: <UserDashboard />,
   },
 ]);
 

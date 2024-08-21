@@ -44,7 +44,11 @@ const Navbar = () => {
                   Facilities
                 </Link>
               </li>
-
+              {user && <li className="flex">
+                <Link to={user?.role === 'admin' ? `/adminDashboard` : `/userDashboard`} className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
+                  <button className="bg-transparent border-accent border-2 text-accent px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95" onClick={handleLogout}>Dashboard</button>
+                </Link>
+              </li>}
               <li className="flex">
                 {user ?
                   <Link to='/login' className="flex items-center -mb-1">
@@ -84,25 +88,30 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="flex">
-              <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
-                Goals
+              <Link to='/facilities' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+                Facilities
               </Link>
             </li>
-            <li className="flex">
-              <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
-                Services
+            {user && <li className="flex">
+              <Link to={user?.role === 'admin' ? `/adminDashboard` : `/userDashboard`} className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+                Dashboard
               </Link>
-            </li>
+            </li>}
             <li className="flex">
-              <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
-                Class Schedules
-              </Link>
+              {user ?
+                <Link to='/login' className="flex items-center -mb-1">
+                  <button className="bg-accent text-white px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95" onClick={handleLogout}>Logout</button>
+                </Link>
+                :
+                <Link to='/signUp' className="flex items-center -mb-1">
+                  <Button text='Sign Up' />
+                </Link>}
             </li>
-            <li className="flex">
+            {/* <li className="flex">
               <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
                 Contact
               </Link>
-            </li>
+            </li> */}
           </ul>
         </motion.div>
       )}
