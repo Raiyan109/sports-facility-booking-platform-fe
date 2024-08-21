@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import logo from '../assets/logo.png'
+import logo from '../assets/playtimehub-high-resolution-logo-transparent.png'
+import Button from "./Button";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,41 +15,32 @@ const Navbar = () => {
   const activeLink = 'text-primary font-bold flex items-center px-4 -mb-1 text-xl'
   return (
     <div>
-      <header className="py-6 mt-3">
+      <header className="py-6 mt-3 px-4 md:px-0">
         <div className="flex justify-between h-8 lg:h-8 py-2 lg:py-3">
           <div className="flex gap-10">
-            <Link to='/' className="flex items-center p-2 font-anton text-xl">
-              <img src={logo} alt="" className="w-20 h-20 object-contain" />
+            <Link to='/' className="flex items-center p-2 text-xl">
+              <img src={logo} alt="" className="w-28 h-28 object-contain" />
             </Link>
           </div>
 
 
 
           <div className="gap-10  hidden lg:flex">
-            <ul className="items-stretch hidden space-x-3 lg:flex text-grayText">
+            <ul className="items-stretch hidden space-x-5 lg:flex text-grayText">
               <li className="flex">
-                <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent relative text-[17px]">
+                <Link to='/' className="flex items-center -mb-1 border-b-2 border-transparent relative text-[17px]">
                   Home
                 </Link>
               </li>
               <li className="flex">
-                <Link to='/about' className="flex items-center px-4 -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
-                  About
+                <Link to='/facilities' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
+                  Facilities
                 </Link>
               </li>
+
               <li className="flex">
-                <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
-                  Services
-                </Link>
-              </li>
-              <li className="flex">
-                <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
-                  Class Schedules
-                </Link>
-              </li>
-              <li className="flex">
-                <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
-                  Contact
+                <Link to='/signUp' className="flex items-center -mb-1">
+                  <Button text='Sign Up' />
                 </Link>
               </li>
             </ul>
