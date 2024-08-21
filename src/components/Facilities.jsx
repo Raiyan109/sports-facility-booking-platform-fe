@@ -6,10 +6,10 @@ const Facilities = () => {
     console.log(facilities);
 
     return (
-        <div id='parts' className='mt-6'>
+        <div id='parts' className='py-32'>
 
-            <h1 className='text-5xl text-primary font-bold text-center font-Montserrat'> Our Fragments</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 m-10 space-y-8'>
+            <h1 className='text-[200px] [mask-image:radial-gradient(ellipse,#000_10%,transparent_80%)] text-grayText font-bold text-center'> Our Facilities</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
                 {
                     facilities && facilities?.data?.map(facility => <Facility
                         key={facility._id}

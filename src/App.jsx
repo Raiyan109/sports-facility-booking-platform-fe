@@ -5,7 +5,7 @@ import routes from './routes/routes'
 function App() {
 
   return (
-    <div>
+    <div className='max-w-[1480px] mx-auto container overflow-hidden'>
       <RouterProvider router={routes} />
     </div>
   )

@@ -13,6 +13,10 @@
     font-family: "Inter", sans-serif;
 }
 
+body {
+    background-color: #2d283e;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -48,6 +52,6 @@
 
 @layer utilities {
     .booking-btn {
-        @apply w-fit bg-violet-700 hover:bg-violet-800 text-neutral-50 font-medium py-3 px-6 rounded-md ease-in-out duration-100
+        @apply w-fit bg-accent hover:bg-[#8117be] font-medium text-xl py-3 px-8 rounded-full ease-in-out duration-100
     }
 }

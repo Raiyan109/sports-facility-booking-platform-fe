@@ -1,8 +1,8 @@
 
 const Facility = ({ facility }) => {
     return (
-        <div>
-            <h1>{facility.name}</h1>
+        <div className="bg-secondary rounded-xl p-6 h-52">
+            <h1 className="text-2xl">{facility.name}</h1>
         </div>
     )
 }

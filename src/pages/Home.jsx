@@ -7,7 +7,7 @@ import { Search } from "./Search";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <Hero />
       {/* <Search /> */}
