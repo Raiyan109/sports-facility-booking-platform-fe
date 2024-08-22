@@ -3,9 +3,7 @@ import Navbar from "../components/Navbar";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useState } from "react";
-import fetcher from "../api/index";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import heroImg from '../assets/pexels-yogendras31-4747326.jpg'
 import { useSignupMutation } from "../redux/features/auth/authApi";
 

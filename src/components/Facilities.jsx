@@ -1,4 +1,5 @@
-import { useGetFacilitiesQuery } from "../redux/facility/facilityApi"
+
+import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
 import Facility from "./Facility"
 
 const Facilities = () => {

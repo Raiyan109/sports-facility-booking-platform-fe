@@ -1,4 +1,5 @@
-import { useGetFacilitiesQuery } from "../redux/facility/facilityApi"
+import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
+
 
 const FacilitiesTable = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
