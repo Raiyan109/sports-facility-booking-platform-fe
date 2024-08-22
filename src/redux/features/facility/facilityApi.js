@@ -6,6 +6,13 @@ export const facilityApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'
             query: () => '/facility',
             providesTags: ['Facilities']
         }),
+        getSingleFacility: builder.query({
+            query: (facilityId) => ({
+                url: `/facility/${facilityId}`,
+                method: 'GET',
+            }),
+            providesTags: ['Facilities']
+        }),
         createFacility: builder.mutation({
             query: (facility) => ({
                 url: '/facility',
@@ -13,8 +20,23 @@ export const facilityApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'
                 body: facility,
             }),
             invalidatesTags: ['Facilities']
-        })
+        }),
+        deleteFacility: builder.mutation({
+            query: (facilityId) => ({
+                url: `/facility/${facilityId}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['Facilities']
+        }),
+        updateFacility: builder.mutation({
+            query: ({ facilityId, ...facility }) => ({
+                url: `/facility/${facilityId}`,
+                method: 'PUT',
+                body: facility
+            }),
+            invalidatesTags: ['Facilities']
+        }),
     })
 })
 
-export const { useGetFacilitiesQuery, useCreateFacilityMutation } = facilityApi
+export const { useGetFacilitiesQuery, useCreateFacilityMutation, useDeleteFacilityMutation, useGetSingleFacilityQuery, useUpdateFacilityMutation } = facilityApi
