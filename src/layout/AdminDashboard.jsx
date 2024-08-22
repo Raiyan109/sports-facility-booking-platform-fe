@@ -8,7 +8,6 @@ const AdminDashboard = () => {
                 <AdminSidebar />
             </header>
             <main className="p-8 bg-secondary w-full">
-                <p>For admin content</p>
                 <Outlet />
             </main>
         </div>

@@ -6,6 +6,8 @@ import ForgotPassword from "../pages/ForgotPassword";
 import { Facilities } from "../pages/Facilities";
 import AdminDashboard from "../layout/AdminDashboard";
 import UserDashboard from "../layout/UserDashboard";
+import CreateFacility from "../pages/CreateFacility";
+import FacilitiesTable from "../pages/FacilitiesTable";
 
 const routes = createBrowserRouter([
   {
@@ -29,11 +31,21 @@ const routes = createBrowserRouter([
     element: <ForgotPassword />,
   },
   {
-    path: "adminDashboard",
+    path: "admin-dashboard",
     element: <AdminDashboard />,
+    children: [
+      {
+        path: "facilities-table",
+        element: <FacilitiesTable />,
+      },
+      {
+        path: "create-facility",
+        element: <CreateFacility />,
+      },
+    ]
   },
   {
-    path: "userDashboard",
+    path: "user-dashboard",
     element: <UserDashboard />,
   },
 ]);

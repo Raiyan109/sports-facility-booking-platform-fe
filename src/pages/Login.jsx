@@ -36,12 +36,7 @@ const Login = () => {
   if (loading) {
     return (
       <>
-        <Navbar />
-        <div className="w-full h-[calc(100vh-8ch)] lg:px-28 md:px-16 sm:px-7 px-4 my-[8ch] flex items-center justify-center flex-col relative hero ">
-          <div className="w-full bg-neutral-100 rounded-md dark:bg-neutral-900/40 p-8 space-y-8">
-            <Loading />
-          </div>
-        </div>
+        <Loading />
       </>
     );
   }

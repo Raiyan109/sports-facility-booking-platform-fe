@@ -3,7 +3,7 @@ import Facility from "./Facility"
 
 const Facilities = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
-    console.log(facilities);
+
 
     return (
         <div id='parts' className='py-32 space-y-8'>
