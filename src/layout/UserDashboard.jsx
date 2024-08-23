@@ -1,15 +1,21 @@
 import { Outlet } from "react-router-dom"
-import UserSidebar from "./UserSidebar"
-
+import UserSidebar, { SidebarItem } from "./UserSidebar"
+import { MdSportsHandball, MdCreateNewFolder } from "react-icons/md";
 
 const UserDashboard = () => {
     return (
-        <div className="container mx-auto flex flex-col md:flex-row gap-4 items-start justify-start">
-            <header className="w-2/5 lg:w-1/5 bg-secondary">
-                <UserSidebar />
+        <div className="flex flex-col md:flex-row gap-4 items-start justify-start">
+            <header className=" bg-secondary">
+                <UserSidebar>
+                    <SidebarItem
+                        icon={<MdCreateNewFolder size={20} />}
+                        text='Create Booking'
+                        link='/user-dashboard/create-booking'
+                        alert
+                    />
+                </UserSidebar>
             </header>
             <main className="p-8 bg-secondary w-full">
-                <p>For admin content</p>
                 <Outlet />
             </main>
         </div>

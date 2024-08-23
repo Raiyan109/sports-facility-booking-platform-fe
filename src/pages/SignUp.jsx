@@ -52,7 +52,7 @@ const SignUp = () => {
     navigate("/login");
   };
   return (
-    <>
+    <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
       <Navbar />
       <div className="flex justify-center items-center flex-col md:flex-row relative bg-secondary mt-5 lg:mt-10 h-screen rounded-2xl">
         <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
@@ -132,7 +132,7 @@ const SignUp = () => {
           <img src={heroImg} alt="" className='w-full h-[800px] object-cover rounded-2xl' />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
