@@ -14,7 +14,7 @@ const Modal = ({ setOpenModal, facilityIdForModal }) => {
     const { data: facility, error, isLoading } = useGetSingleFacilityQuery(facilityIdForModal)
     // eslint-disable-next-line no-unsafe-optional-chaining
     const facilityId = facility?.data?._id
-    console.log(facilityId);
+
 
     const [updateFacility] = useUpdateFacilityMutation()
     const MySwal = withReactContent(Swal);
@@ -29,7 +29,7 @@ const Modal = ({ setOpenModal, facilityIdForModal }) => {
             location: location || facility?.data?.location
         }
         const res = await updateFacility({ facilityId, ...updatedFacility }).unwrap()
-        console.log(res);
+
         MySwal.fire({
             title: res.message,
             icon: "success",
