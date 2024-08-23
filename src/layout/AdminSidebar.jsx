@@ -25,6 +25,9 @@ const AdminSidebar = () => {
                     <li>
                         <NavLink to='/admin-dashboard/create-facility' className={({ isActive }) => isActive ? 'text-grayText font-bold underline' : 'text-grayText'}>Create Facility</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/admin-dashboard/all-bookings' className={({ isActive }) => isActive ? 'text-grayText font-bold underline' : 'text-grayText'}>All Bookings</NavLink>
+                    </li>
                 </ul>
             </div>
 

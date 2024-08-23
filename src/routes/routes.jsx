@@ -8,6 +8,7 @@ import AdminDashboard from "../layout/AdminDashboard";
 import UserDashboard from "../layout/UserDashboard";
 import CreateFacility from "../pages/CreateFacility";
 import FacilitiesTable from "../pages/FacilitiesTable";
+import AllBookings from "../components/AllBookings";
 
 const routes = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
       {
         path: "create-facility",
         element: <CreateFacility />,
+      },
+      {
+        path: "all-bookings",
+        element: <AllBookings />,
       },
     ]
   },

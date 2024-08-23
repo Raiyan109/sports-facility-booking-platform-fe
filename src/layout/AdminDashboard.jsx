@@ -7,7 +7,7 @@ const AdminDashboard = () => {
             <header className="w-2/5 lg:w-1/5 bg-secondary">
                 <AdminSidebar />
             </header>
-            <main className="p-8 bg-secondary w-full">
+            <main className="p-8 w-full">
                 <Outlet />
             </main>
         </div>
