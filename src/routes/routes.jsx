@@ -10,6 +10,7 @@ import CreateFacility from "../pages/CreateFacility";
 import FacilitiesTable from "../pages/FacilitiesTable";
 import AllBookings from "../components/AllBookings";
 import CreateBooking from "../pages/CreateBooking";
+import UserBookings from "../pages/UserBookings";
 
 const routes = createBrowserRouter([
   {
@@ -55,8 +56,8 @@ const routes = createBrowserRouter([
     element: <UserDashboard />,
     children: [
       {
-        path: "facilities-table",
-        element: <FacilitiesTable />,
+        path: "/user-dashboard",
+        element: <UserBookings />,
       },
       {
         path: "create-booking",

@@ -3,6 +3,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FiMoreVertical } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../redux/features/auth/authSlice";
 
 const SidebarContext = createContext()
 
@@ -10,6 +12,9 @@ const SidebarContext = createContext()
 const UserSidebar = ({ children }) => {
 
     const [expanded, setExpanded] = useState(true)
+    const user = useSelector(useCurrentUser)
+
+
 
     return (
         <aside className="h-screen">
@@ -24,7 +29,7 @@ const UserSidebar = ({ children }) => {
                     <hr />
                     <button
                         onClick={() => setExpanded((curr) => !curr)}
-                        className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
+                        className="p-1.5 rounded-lg bg-grayText hover:bg-grayText/80 transition-all duration-100"
                     >
                         {expanded ? <FaChevronLeft /> : <FaChevronRight />}
                     </button>
@@ -34,23 +39,19 @@ const UserSidebar = ({ children }) => {
                     <ul className="flex-1 px-3">{children}</ul>
                 </SidebarContext.Provider>
 
-                <div className="border-t flex p-3">
-                    <img
-                        src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
-                        alt=""
-                        className="w-10 h-10 rounded-md"
-                    />
+                <div className="border-t flex items-center justify-center p-3">
+                    <FaUser size={40} className="text-grayText" />
                     <div
                         className={`
                 flex justify-between items-center
                 overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}
             `}
                     >
-                        <div className="leading-4">
-                            <h4 className="font-semibold">John Doe</h4>
+                        <div className="">
+                            <h4 className="font-semibold text-grayText text-xl">{user?.name}</h4>
                             <span className="text-xs text-gray-600">johndoe@gmail.com</span>
                         </div>
-                        <FiMoreVertical size={20} />
+                        <FiMoreVertical size={20} className="text-grayText" />
                     </div>
                 </div>
             </nav>

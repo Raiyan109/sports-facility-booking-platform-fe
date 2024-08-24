@@ -8,6 +8,12 @@ const UserDashboard = () => {
             <header className=" bg-secondary">
                 <UserSidebar>
                     <SidebarItem
+                        icon={<MdSportsHandball size={20} />}
+                        text='User Bookings'
+                        link='/user-dashboard'
+                        alert
+                    />
+                    <SidebarItem
                         icon={<MdCreateNewFolder size={20} />}
                         text='Create Booking'
                         link='/user-dashboard/create-booking'
@@ -15,7 +21,7 @@ const UserDashboard = () => {
                     />
                 </UserSidebar>
             </header>
-            <main className="p-8 bg-secondary w-full">
+            <main className="p-8 w-full">
                 <Outlet />
             </main>
         </div>

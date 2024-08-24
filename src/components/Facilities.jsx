@@ -7,7 +7,7 @@ const Facilities = () => {
 
 
     return (
-        <div id='parts' className='py-32 space-y-8'>
+        <div className='py-32 space-y-8'>
 
             <h1 className='text-[70px] md:text-[200px] [mask-image:radial-gradient(ellipse,#000_10%,transparent_80%)] text-grayText font-bold text-center'> Our Facilities</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
