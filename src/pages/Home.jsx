@@ -7,12 +7,14 @@ import { Search } from "./Search";
 
 const Home = () => {
   return (
-    <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
-      <Navbar />
-      <Hero />
-      {/* <Search /> */}
-      <Facilities />
-      {/* <Footer /> */}
+    <div>
+      <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
+        <Navbar />
+        <Hero />
+        {/* <Search /> */}
+        <Facilities />
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import logo from '../assets/playtimehub-high-resolution-logo-transparent.png'
+import logo from '../assets/logo.png'
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, useCurrentUser } from "../redux/features/auth/authSlice";
@@ -42,6 +42,16 @@ const Navbar = () => {
               <li className="flex">
                 <Link to='/facilities' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
                   Facilities
+                </Link>
+              </li>
+              <li className="flex">
+                <Link to='/about' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
+                  About Us
+                </Link>
+              </li>
+              <li className="flex">
+                <Link to='/contact' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
+                  Contact Us
                 </Link>
               </li>
               {user && <li className="flex">

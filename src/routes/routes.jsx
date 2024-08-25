@@ -11,6 +11,8 @@ import FacilitiesTable from "../pages/FacilitiesTable";
 import AllBookings from "../components/AllBookings";
 import CreateBooking from "../pages/CreateBooking";
 import UserBookings from "../pages/UserBookings";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const routes = createBrowserRouter([
   {
     path: "/signUp",
     element: <SignUp />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
   {
     path: "/forgot-password",
