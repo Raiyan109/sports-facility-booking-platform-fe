@@ -1,8 +1,13 @@
-import { useGetUserBookingsQuery } from "../redux/features/booking/bookingApi"
+import { useCancelBookingMutation, useGetUserBookingsQuery } from "../redux/features/booking/bookingApi"
+import moment from "moment"
 
 const UserBookings = () => {
     const { data: userBookings } = useGetUserBookingsQuery()
+    const [cancelBooking] = useCancelBookingMutation()
 
+    const handleCancelBooking = (bookingId) => {
+        cancelBooking(bookingId)
+    }
 
     return (
         <div className="flex flex-col mt-6">
@@ -12,6 +17,7 @@ const UserBookings = () => {
                         <table className="min-w-full divide-y divide-primary">
                             <thead className="bg-secondary">
                                 <tr>
+                                    <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Facility</th>
                                     <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">
                                         <button className="flex items-center gap-x-2">
                                             <span>Status</span>
@@ -34,12 +40,12 @@ const UserBookings = () => {
                                         </button>
                                     </th>
 
-                                    <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Facility</th>
+
                                     <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Date</th>
                                     <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Start</th>
                                     <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">End</th>
 
-                                    <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Edit</th>
+                                    <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-grayText">Action</th>
 
                                     {/* <th scope="col" className="relative py-3.5 px-4">
                                     <span className="sr-only">Edit</span>
@@ -47,8 +53,9 @@ const UserBookings = () => {
                                 </tr>
                             </thead>
                             <tbody className="bg-secondary divide-y divide-primary">
-                                {userBookings?.data?.map((booking) => (
+                                {userBookings?.data.filter(booking => booking?.isBooked === 'confirmed')?.map((booking) => (
                                     <tr key={booking._id}>
+                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility.name}</td>
                                         <td className="px-12 py-4 text-sm font-medium text-grayText whitespace-nowrap">
                                             <div className={booking?.isBooked === 'confirmed' ? `inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100 dark:bg-gray-800` : 'inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-red-100'}>
                                                 <span className={booking?.isBooked === 'confirmed' ? `h-1.5 w-1.5 rounded-full bg-emerald-500` : 'h-1.5 w-1.5 rounded-full bg-red-500'}></span>
@@ -57,8 +64,8 @@ const UserBookings = () => {
                                             </div>
                                         </td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">${booking?.payableAmount}</td>
-                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility}</td>
-                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.date}</td>
+
+                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{moment(booking?.date).format("MMM Do YY")}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.startTime}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.endTime}</td>
                                         {/* <td className="px-4 py-4 text-sm whitespace-nowrap">
@@ -70,7 +77,10 @@ const UserBookings = () => {
                                     </td> */}
                                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                                             <div className="flex items-center gap-x-6">
-                                                <button className="text-grayText transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
+                                                <button className="w-full md:w-fit bg-primary hover:bg-primary/80 disabled:bg-secondary disabled:cursor-not-allowed text-grayText font-medium py-2 px-5 rounded-full ease-in-out duration-100" onClick={() => handleCancelBooking(booking?._id)}>
+                                                    Cancel
+                                                </button>
+                                                {/* <button className="text-grayText transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
                                                 // onClick={() => handleDelete(facility?._id)}
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
@@ -84,7 +94,7 @@ const UserBookings = () => {
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                                     </svg>
-                                                </button>
+                                                </button> */}
                                             </div>
                                         </td>
                                     </tr>

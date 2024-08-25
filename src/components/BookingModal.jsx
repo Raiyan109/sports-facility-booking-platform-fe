@@ -8,6 +8,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "../components/ui/select"
+import { useCreateBookingMutation } from "../redux/features/booking/bookingApi";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 // eslint-disable-next-line react/prop-types
 const BookingModal = ({ setOpenModal, facilityIdForModal }) => {
@@ -15,13 +18,26 @@ const BookingModal = ({ setOpenModal, facilityIdForModal }) => {
     const [timeSlot, setTimeSlot] = useState([])
     const [selectedStartTimeSlot, setSelectedStartTimeSlot] = useState('')
     const [selectedEndTimeSlot, setSelectedEndTimeSlot] = useState('')
+    const [createBooking] = useCreateBookingMutation()
+    const MySwal = withReactContent(Swal);
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('date =>', date);
-        console.log('start time =>', selectedStartTimeSlot);
-        console.log('end time =>', selectedEndTimeSlot);
+        const bookingInfo = {
+            facility: facilityIdForModal,
+            date: date,
+            startTime: selectedStartTimeSlot,
+            endTime: selectedEndTimeSlot
+        }
+        const res = await createBooking(bookingInfo).unwrap()
+        console.log(res);
+
+
+        MySwal.fire({
+            title: res.message,
+            icon: "success",
+        });
+        // navigate("/");
     }
 
     const handleStartTime = (value) => {
