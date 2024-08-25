@@ -6,7 +6,7 @@ const Team = () => {
             <div className="py-20">
                 <div className="container mx-auto px-6 md:px-12 xl:px-32">
                     <div className="mb-16 text-center">
-                        <h2 className="mb-4 text-center text-2xl text-grayText font-bold md:text-4xl">Our Team</h2>
+                        <h2 className="mb-4 text-center text-4xl text-grayText font-bold md:text-5xl">Our Team</h2>
                         <p className="text-grayText/70 lg:w-8/12 lg:mx-auto">Meet the team behind Play Time Hub</p>
                     </div>
                     <div className="grid gap-12 items-center md:grid-cols-3">

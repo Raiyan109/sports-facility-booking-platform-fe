@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Team from '../components/Team';
 import GetInTouch from '../components/GetInTouch';
 import Footer from '../components/Footer';
+import Timeline from '../components/Timeline';
 const About = () => {
     return (
         // w-full h-[calc(100vh-8ch)]
@@ -51,6 +52,9 @@ const About = () => {
 
                 {/* Team */}
                 <Team />
+
+                {/* Timeline */}
+                <Timeline />
 
                 {/* Get in touch */}
                 <GetInTouch />
