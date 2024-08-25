@@ -4,8 +4,8 @@ import { MdSportsHandball, MdCreateNewFolder } from "react-icons/md";
 
 const UserDashboard = () => {
     return (
-        <div className="flex flex-col md:flex-row gap-4 items-start justify-start">
-            <header className=" bg-secondary">
+        <div className="flex items-start justify-start">
+            <header className=" bg-secondary fixed z-10">
                 <UserSidebar>
                     <SidebarItem
                         icon={<MdSportsHandball size={20} />}
@@ -21,7 +21,7 @@ const UserDashboard = () => {
                     />
                 </UserSidebar>
             </header>
-            <main className="p-8 w-full">
+            <main className="py-8 pl-24 lg:px-52 w-full">
                 <Outlet />
             </main>
         </div>
