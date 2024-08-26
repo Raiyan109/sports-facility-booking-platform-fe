@@ -102,6 +102,16 @@ const Navbar = () => {
                 Facilities
               </Link>
             </li>
+            <li className="flex">
+              <Link to='/about' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+                About Us
+              </Link>
+            </li>
+            <li className="flex">
+              <Link to='/contact' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+                Contact Us
+              </Link>
+            </li>
             {user && <li className="flex">
               <Link to={user?.role === 'admin' ? `/admin-dashboard` : `/user-dashboard`} className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
                 Dashboard
