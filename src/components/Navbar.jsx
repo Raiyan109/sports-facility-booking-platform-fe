@@ -40,7 +40,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link to='/facilities' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
+                <Link to='/all-facilities-list' className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
                   Facilities
                 </Link>
               </li>
@@ -98,7 +98,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="flex">
-              <Link to='/facilities' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+              <Link to='/all-facilities-list' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
                 Facilities
               </Link>
             </li>

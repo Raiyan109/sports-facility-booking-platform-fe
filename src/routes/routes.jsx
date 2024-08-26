@@ -13,6 +13,8 @@ import CreateBooking from "../pages/CreateBooking";
 import UserBookings from "../pages/UserBookings";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import AllFacilitiesList from "../pages/AllFacilitiesList";
+import ProtectedRoute from "../layout/ProtectedRoute";
 
 const routes = createBrowserRouter([
   {
@@ -22,6 +24,12 @@ const routes = createBrowserRouter([
   {
     path: "/facilities",
     element: <Facilities />,
+  },
+  {
+    path: "/all-facilities-list",
+    element: <ProtectedRoute>
+      <AllFacilitiesList />
+    </ProtectedRoute>
   },
   {
     path: "/login",
