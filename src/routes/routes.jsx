@@ -15,6 +15,8 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import AllFacilitiesList from "../pages/AllFacilitiesList";
 import ProtectedRoute from "../layout/ProtectedRoute";
+import FacilityDetails from "../pages/FacilityDetails";
+
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +31,12 @@ const routes = createBrowserRouter([
     path: "/all-facilities-list",
     element: <ProtectedRoute>
       <AllFacilitiesList />
+    </ProtectedRoute>
+  },
+  {
+    path: "/all-facilities-list/:id",
+    element: <ProtectedRoute>
+      <FacilityDetails />
     </ProtectedRoute>
   },
   {

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import heroImg from '../assets/hero-img.png'
+import { Link } from 'react-router-dom';
 const Hero = () => {
     return (
         // w-full h-[calc(100vh-8ch)]
@@ -32,9 +33,11 @@ const Hero = () => {
                         </motion.h1>
                     </motion.div>
 
-                    <motion.button className='booking-btn'>
-                        Book Now
-                    </motion.button>
+                    <Link to='/all-facilities-list'>
+                        <motion.button className='booking-btn'>
+                            Book Now
+                        </motion.button>
+                    </Link>
                 </motion.div>
             </div>
             <div className='flex-1'>

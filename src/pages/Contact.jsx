@@ -78,19 +78,19 @@ const Contact = () => {
                         <ul className="mt-12 space-y-3 block md:hidden">
                             <li className="flex items-center">
                                 <Mail className="text-grayText" size={20} />
-                                <a href="javascript:void(0)" className="text-white text-sm ml-4">
+                                <a href="#" className="text-white text-sm ml-4">
                                     support@playtimehub.com
                                 </a>
                             </li>
                             <li className="flex items-center">
                                 <Phone className="text-grayText" size={20} />
-                                <a href="javascript:void(0)" className="text-white text-sm ml-4">
+                                <a href="#" className="text-white text-sm ml-4">
                                     01713160709
                                 </a>
                             </li>
                             <li className="flex items-center">
                                 <MapPin className="text-grayText" size={20} />
-                                <a href="javascript:void(0)" className="text-white text-sm ml-4">
+                                <a href="#" className="text-white text-sm ml-4">
                                     123 Street 256 House
                                 </a>
                             </li>
