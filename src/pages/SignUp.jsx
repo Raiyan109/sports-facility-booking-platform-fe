@@ -99,7 +99,8 @@ const SignUp = () => {
                   className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
-              <div>
+              {/* Role */}
+              {/* <div>
                 <label className="block mb-1 text-sm text-grayText">Role</label>
                 <select
                   value={role}
@@ -113,7 +114,7 @@ const SignUp = () => {
                   <option value="admin">Admin</option>
                   <option value="user">User</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div className="flex justify-center items-center">
               {/* w-fit */}

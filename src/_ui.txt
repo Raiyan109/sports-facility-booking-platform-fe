@@ -4,3 +4,4 @@ Product Details page: https://dribbble.com/shots/24617297-Nirvana-Skincare-Produ
 Timeline code: https://github.com/alekspopovic/simple-react-timeline/blob/main/src/App.js
 Timeline video:https://www.youtube.com/watch?v=-rnkToU2_lw
 How it works: https://shuffle.dev/components/tailwind/all/how-it-works
+Calender in dashboard: https://www.youtube.com/watch?v=myYlGLFxZas&t=44s

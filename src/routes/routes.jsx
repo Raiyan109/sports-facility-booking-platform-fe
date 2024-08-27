@@ -17,6 +17,7 @@ import AllFacilitiesList from "../pages/AllFacilitiesList";
 import ProtectedRoute from "../layout/ProtectedRoute";
 import FacilityDetails from "../pages/FacilityDetails";
 import AdminWelcome from "../layout/AdminWelcome";
+import MakeAdmin from "../layout/MakeAdmin";
 
 
 const routes = createBrowserRouter([
@@ -79,6 +80,10 @@ const routes = createBrowserRouter([
       {
         path: "all-bookings",
         element: <AllBookings />,
+      },
+      {
+        path: "make-admin",
+        element: <MakeAdmin />,
       },
     ]
   },
