@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useCancelBookingMutation, useGetUserBookingsQuery } from "../redux/features/booking/bookingApi"
 import moment from "moment"
 
@@ -76,10 +77,15 @@ const UserBookings = () => {
                                         </div>
                                     </td> */}
                                         <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                            <div className="flex items-center gap-x-6">
-                                                <button className="w-full md:w-fit bg-primary hover:bg-primary/80 disabled:bg-secondary disabled:cursor-not-allowed text-grayText font-medium py-2 px-5 rounded-full ease-in-out duration-100" onClick={() => handleCancelBooking(booking?._id)}>
+                                            <div className="flex items-center gap-2">
+                                                <button className="w-full md:w-fit bg-primary hover:bg-primary/80 disabled:bg-secondary disabled:cursor-not-allowed text-grayText font-medium py-1 px-2 rounded-full ease-in-out duration-100" onClick={() => handleCancelBooking(booking?._id)}>
                                                     Cancel
                                                 </button>
+                                                <Link to={`/my-bookings/${booking?._id}`}>
+                                                    <button className="w-full md:w-fit bg-primary hover:bg-primary/80 disabled:bg-secondary disabled:cursor-not-allowed text-grayText font-medium py-1 px-2 rounded-full ease-in-out duration-100" >
+                                                        Details
+                                                    </button>
+                                                </Link>
                                                 {/* <button className="text-grayText transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
                                                 // onClick={() => handleDelete(facility?._id)}
                                                 >

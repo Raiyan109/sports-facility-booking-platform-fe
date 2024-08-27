@@ -18,6 +18,7 @@ import ProtectedRoute from "../layout/ProtectedRoute";
 import FacilityDetails from "../pages/FacilityDetails";
 import AdminWelcome from "../layout/AdminWelcome";
 import MakeAdmin from "../layout/MakeAdmin";
+import BookingDetails from "../pages/BookingDetails";
 
 
 const routes = createBrowserRouter([
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
     element: <ProtectedRoute>
       <FacilityDetails />
     </ProtectedRoute>
+  },
+  {
+    path: "/my-bookings/:id",
+    element: <BookingDetails />
   },
   {
     path: "/login",

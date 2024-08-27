@@ -30,6 +30,12 @@ const FacilitiesTable = () => {
                                     <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-grayText">
                                         <div className="flex items-center gap-x-3">
                                             {/* <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" /> */}
+                                            <span>Image</span>
+                                        </div>
+                                    </th>
+                                    <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-grayText">
+                                        <div className="flex items-center gap-x-3">
+                                            {/* <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" /> */}
                                             <span>Name</span>
                                         </div>
                                     </th>
@@ -73,7 +79,15 @@ const FacilitiesTable = () => {
                                                 {/* <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" /> */}
 
                                                 <div className="flex items-center gap-x-2">
+                                                    <img src={facility?.image} alt="" className="w-12 h-12 object-cover rounded-full" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td className="px-4 py-4 text-sm font-medium text-grayText whitespace-nowrap">
+                                            <div className="inline-flex items-center gap-x-3">
+                                                {/* <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" /> */}
 
+                                                <div className="flex items-center gap-x-2">
                                                     <div>
                                                         <h2 className="font-medium text-grayText ">{facility?.name}</h2>
 

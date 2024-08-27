@@ -9,7 +9,7 @@ const UserDashboard = () => {
                 <UserSidebar>
                     <SidebarItem
                         icon={<MdSportsHandball size={20} />}
-                        text='User Bookings'
+                        text='My Bookings'
                         link='/user-dashboard'
                         alert
                     />
