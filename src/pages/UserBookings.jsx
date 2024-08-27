@@ -4,6 +4,8 @@ import moment from "moment"
 
 const UserBookings = () => {
     const { data: userBookings } = useGetUserBookingsQuery()
+    console.log(userBookings);
+
     const [cancelBooking] = useCancelBookingMutation()
 
     const handleCancelBooking = (bookingId) => {
@@ -55,7 +57,7 @@ const UserBookings = () => {
                             </thead>
                             <tbody className="bg-secondary divide-y divide-primary">
                                 {userBookings?.data.filter(booking => booking?.isBooked === 'confirmed')?.map((booking) => (
-                                    <tr key={booking._id}>
+                                    <tr key={booking?._id}>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility.name}</td>
                                         <td className="px-12 py-4 text-sm font-medium text-grayText whitespace-nowrap">
                                             <div className={booking?.isBooked === 'confirmed' ? `inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100 dark:bg-gray-800` : 'inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-red-100'}>
