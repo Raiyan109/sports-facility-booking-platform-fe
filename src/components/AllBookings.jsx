@@ -1,5 +1,5 @@
 import { useGetAllBookingsQuery } from "../redux/features/booking/bookingApi"
-
+import moment from "moment"
 const AllBookings = () => {
     const { data: bookings } = useGetAllBookingsQuery()
     console.log(bookings);
@@ -79,7 +79,7 @@ const AllBookings = () => {
                                         </td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">${booking?.payableAmount}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility?.name}</td>
-                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.date}</td>
+                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{moment(booking?.date).format("MMM Do YY")}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.startTime}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.endTime}</td>
                                         {/* <td className="px-4 py-4 text-sm whitespace-nowrap">

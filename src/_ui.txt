@@ -3,3 +3,4 @@ Cards2: https://dribbble.com/shots/21071489-Web-UI
 Product Details page: https://dribbble.com/shots/24617297-Nirvana-Skincare-Product-Details
 Timeline code: https://github.com/alekspopovic/simple-react-timeline/blob/main/src/App.js
 Timeline video:https://www.youtube.com/watch?v=-rnkToU2_lw
+How it works: https://shuffle.dev/components/tailwind/all/how-it-works
