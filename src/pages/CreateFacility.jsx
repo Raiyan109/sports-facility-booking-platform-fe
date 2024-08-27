@@ -73,7 +73,7 @@ const CreateFacility = () => {
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
-                        <motion.button className="w-full bg-primary hover:bg-primary/80 text-grayText font-medium py-3 px-6 rounded-full ease-in-out duration-100">
+                        <motion.button className="w-full bg-accent hover:bg-primary/80 text-grayText font-medium py-3 px-6 rounded-full ease-in-out duration-100">
                             Create
                         </motion.button>
                     </div>

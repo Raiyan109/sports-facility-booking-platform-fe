@@ -16,6 +16,7 @@ import Contact from "../pages/Contact";
 import AllFacilitiesList from "../pages/AllFacilitiesList";
 import ProtectedRoute from "../layout/ProtectedRoute";
 import FacilityDetails from "../pages/FacilityDetails";
+import AdminWelcome from "../layout/AdminWelcome";
 
 
 const routes = createBrowserRouter([
@@ -63,6 +64,10 @@ const routes = createBrowserRouter([
     path: "admin-dashboard",
     element: <AdminDashboard />,
     children: [
+      {
+        path: "/admin-dashboard",
+        element: <AdminWelcome />,
+      },
       {
         path: "facilities-table",
         element: <FacilitiesTable />,

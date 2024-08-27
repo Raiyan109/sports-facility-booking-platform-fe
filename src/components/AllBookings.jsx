@@ -7,7 +7,8 @@ const AllBookings = () => {
     return (
         <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 space-y-10">
+                    <h1 className='text-3xl md:text-5xl text-grayText font-bold text-center md:text-left'>All Bookings</h1>
                     <div className="overflow-hidden border border-primary/80 dark:border-gray-700 md:rounded-lg">
                         <table className="min-w-full divide-y divide-primary">
                             <thead className="bg-secondary">
@@ -77,7 +78,7 @@ const AllBookings = () => {
                                             </div>
                                         </td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">${booking?.payableAmount}</td>
-                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility}</td>
+                                        <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.facility?.name}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.date}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.startTime}</td>
                                         <td className="px-4 py-4 text-sm text-grayText whitespace-nowrap">{booking?.endTime}</td>
