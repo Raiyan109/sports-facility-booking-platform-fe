@@ -1,12 +1,11 @@
 import Facilities from "../components/Facilities";
 import FeaturedFacilities from "../components/FeaturedFacilities";
 import Footer from "../components/Footer";
+import HowItWorks from "../components/HowItWorks";
 import Navbar from "../components/Navbar";
 import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
 import Hero from "./Hero";
-import Hero2 from "./Hero2";
-import { Search } from "./Search";
 
 const Home = () => {
   return (
@@ -17,6 +16,7 @@ const Home = () => {
         <FeaturedFacilities />
         {/* <Search /> */}
         <Facilities />
+        <HowItWorks />
         <Testimonials />
         <Pricing />
       </div>
