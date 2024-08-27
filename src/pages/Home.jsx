@@ -1,4 +1,5 @@
 import Facilities from "../components/Facilities";
+import FeaturedFacilities from "../components/FeaturedFacilities";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Hero from "./Hero";
@@ -11,6 +12,7 @@ const Home = () => {
       <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
         <Navbar />
         <Hero />
+        <FeaturedFacilities />
         {/* <Search /> */}
         <Facilities />
       </div>
