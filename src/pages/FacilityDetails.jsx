@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 const FacilityDetails = () => {
     const { id } = useParams()
     const { data: facility, error, isLoading } = useGetSingleFacilityQuery(id)
-    console.log(facility);
 
     return (
         <div className="">

@@ -6,8 +6,6 @@ const AllFacilityList = ({ facility }) => {
     const [openModal, setOpenModal] = useState(false)
     const [facilityIdForModal, setFacilityIdForModal] = useState('')
 
-    console.log(facility);
-
     const handleModal = (id) => {
         setOpenModal(!openModal)
         setFacilityIdForModal(id)
