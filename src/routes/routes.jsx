@@ -19,6 +19,7 @@ import FacilityDetails from "../pages/FacilityDetails";
 import AdminWelcome from "../layout/AdminWelcome";
 import MakeAdmin from "../layout/MakeAdmin";
 import BookingDetails from "../pages/BookingDetails";
+import AvailabilityChecking from "../pages/AvailabilityChecking";
 
 
 const routes = createBrowserRouter([
@@ -45,6 +46,10 @@ const routes = createBrowserRouter([
   {
     path: "/my-bookings/:id",
     element: <BookingDetails />
+  },
+  {
+    path: "/availability-checking/:id",
+    element: <AvailabilityChecking />,
   },
   {
     path: "/login",

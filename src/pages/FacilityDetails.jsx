@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 const FacilityDetails = () => {
     const { id } = useParams()
     const { data: facility, error, isLoading } = useGetSingleFacilityQuery(id)
+    console.log(facility);
 
     return (
         <div className="">
@@ -15,10 +16,10 @@ const FacilityDetails = () => {
                 <Navbar />
                 <div className="h-screen py-12 space-y-10">
                     <div className="flex flex-col gap-4">
-                        <Link to='/'>
+                        <Link to='/all-facilities-list'>
                             <div className="flex items-center gap-3 text-grayText text-sm">
                                 <ArrowLeft size={20} />
-                                Back to booking page
+                                Back to facilities page
                             </div>
                         </Link>
                         <h1 className='text-5xl md:text-5xl text-grayText font-bold'>{facility?.data?.name}</h1>
@@ -37,7 +38,7 @@ const FacilityDetails = () => {
                                 <h2 className="text-grayText/80 max-w-md">{facility?.data?.description}</h2>
                                 <h2 className="text-grayText text-4xl">${facility?.data?.pricePerHour}</h2>
                             </div>
-                            <Link to={`/all-facilities-list/${facility?._id}`}>
+                            <Link to={`/availability-checking/${facility?.data?._id}`}>
                                 <button type="button" className="flex items-center justify-between w-fit p-3 font-semibold tracking-wide rounded-full bg-accent text-grayText">Book Now
                                     <ArrowRight />
                                 </button>
