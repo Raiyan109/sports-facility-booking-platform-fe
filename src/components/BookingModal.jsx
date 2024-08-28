@@ -20,6 +20,7 @@ const BookingModal = ({ setOpenModal, facilityIdForModal }) => {
     const [selectedEndTimeSlot, setSelectedEndTimeSlot] = useState('')
     const [createBooking] = useCreateBookingMutation()
     const MySwal = withReactContent(Swal);
+    console.log(date);
 
     const handleSubmit = async (e) => {
         e.preventDefault()

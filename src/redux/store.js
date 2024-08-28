@@ -24,7 +24,7 @@ export const store = configureStore({
         [baseApi.reducerPath]: baseApi.reducer,
         auth: persistedAuthReducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    middleware: (getDefaultMiddlewares) => getDefaultMiddlewares({
         serializableCheck: {
             ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         }
