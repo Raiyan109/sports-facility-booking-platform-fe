@@ -44,7 +44,7 @@ const HowItWorks = () => {
             <div className="container p-4 mx-auto sm:p-10">
                 <div className="mb-12 space-y-16 text-center">
                     <div className="space-y-4">
-                        <h1 className="text-4xl font-semibold leading-tight text-grayText">How it works</h1>
+                        <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">How it works</h1>
                         <p className="px-4 sm:px-8 lg:px-24 text-grayText/70">A step-by-step clear and straightforward guide to the booking process.</p>
                     </div>
                     <div>

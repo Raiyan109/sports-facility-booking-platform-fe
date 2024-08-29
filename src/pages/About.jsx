@@ -5,6 +5,7 @@ import Team from '../components/Team';
 import GetInTouch from '../components/GetInTouch';
 import Footer from '../components/Footer';
 import Timeline from '../components/Timeline';
+import { Link } from 'react-router-dom';
 const About = () => {
     return (
         // w-full h-[calc(100vh-8ch)]
@@ -40,9 +41,11 @@ const About = () => {
                                 </motion.h1>
                             </motion.div>
 
-                            <motion.button className='booking-btn'>
-                                Book Now
-                            </motion.button>
+                            <Link to='/all-facilities-list'>
+                                <motion.button className='booking-btn'>
+                                    Book Now
+                                </motion.button>
+                            </Link>
                         </motion.div>
                     </div>
                     <div className='flex-1'>

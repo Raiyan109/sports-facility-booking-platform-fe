@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import contactFormImg from '../assets/contact-form.jpg'
 import { Mail, MapPin, Phone, SendHorizonal } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const Contact = () => {
     const [email, setEmail] = useState("");
@@ -60,9 +61,11 @@ const Contact = () => {
                                 </motion.h1>
                             </motion.div>
 
-                            <motion.button className='booking-btn'>
-                                Book Now
-                            </motion.button>
+                            <Link to='/all-facilities-list'>
+                                <motion.button className='booking-btn'>
+                                    Book Now
+                                </motion.button>
+                            </Link>
                         </motion.div>
                     </div>
                     <div className='flex-1'>

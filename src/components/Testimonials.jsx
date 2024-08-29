@@ -56,7 +56,7 @@ const Testimonials = () => {
             </div> */}
             <div className="pt-14 flex flex-col md:flex-row gap-32 justify-between">
                 <div className="flex-1 space-y-10">
-                    <h1 className='text-5xl md:text-7xl text-grayText font-bold text-center md:text-left'>Testimonials</h1>
+                    <h1 className='text-3xl md:text-5xl text-grayText font-bold text-center md:text-left'>Testimonials</h1>
                     <h3 className="text-grayText/70 max-w-sm text-center md:text-left">Public Cheers for Us! Find out how our users are spreading the world</h3>
                 </div>
                 <div className="flex-1">

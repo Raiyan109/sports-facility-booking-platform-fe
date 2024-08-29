@@ -8,8 +8,8 @@ const Pricing = () => {
             <section className="py-6">
                 <div className="container p-4 mx-auto sm:p-10">
                     <div className="mb-12 space-y-4 text-center">
-                        <h1 className="text-4xl font-semibold leading-tight text-grayText">Pricing</h1>
-                        <p className="px-4 sm:px-8 lg:px-24 text-grayText/70">Sunt suscipit eaque qui iure unde labore numquam iusto alias explicabo, pariatur ipsam, cupiditate aliquid modi?</p>
+                        <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">Pricing</h1>
+                        <p className="px-4 sm:px-8 lg:px-24 text-grayText/70">Read our pricing plan and choose wisely your favorite one.</p>
                         <div>
                             <button className="px-4 py-1 font-semibold border rounded-l-lg bg-secondary border-secondary text-gray-50">Monthly</button>
                             <button className="px-4 py-1 border rounded-r-lg border-secondary text-grayText">Annually</button>
