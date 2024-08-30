@@ -13,7 +13,7 @@ import { ArrowRight } from "lucide-react"
 const FeaturedFacilities = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
     return (
-        <div className="py-32">
+        <div className="py-16 md:py-32">
             {/* <div className="flex justify-between items-center gap-28">
                 <h1 className='text-3xl md:text-5xl text-grayText font-bold text-center'>Featured Facilities</h1>
                 <Link to='/all-facilities-list'>
