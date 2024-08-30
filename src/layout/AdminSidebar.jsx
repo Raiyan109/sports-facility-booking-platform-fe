@@ -2,20 +2,24 @@ import { createContext, useContext, useState } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FiMoreVertical } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useCurrentUser } from "../redux/features/auth/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, useCurrentUser } from "../redux/features/auth/authSlice";
 import { ArrowLeft } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "../components/ui/dropdown-menu";
 
 const SidebarContext = createContext()
 
 // eslint-disable-next-line react/prop-types
 const AdminSidebar = ({ children }) => {
-
     const [expanded, setExpanded] = useState(true)
     const user = useSelector(useCurrentUser)
-
-
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+        dispatch(logout())
+        navigate('/login')
+    }
 
     return (
         <aside className="h-screen">
@@ -59,7 +63,15 @@ const AdminSidebar = ({ children }) => {
                             <h4 className="font-semibold text-grayText text-xl">{user?.name}</h4>
                             <span className="text-xs text-gray-600">johndoe@gmail.com</span>
                         </div>
-                        <FiMoreVertical size={20} className="text-grayText" />
+                        <DropdownMenu>
+                            <DropdownMenuTrigger>
+                                <FiMoreVertical size={20} className="text-grayText" />
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <DropdownMenuLabel onClick={handleLogout}>Logout</DropdownMenuLabel>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+
                     </div>
                 </div>
             </nav>
