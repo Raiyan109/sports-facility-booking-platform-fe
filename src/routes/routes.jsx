@@ -20,6 +20,7 @@ import AdminWelcome from "../layout/AdminWelcome";
 import MakeAdmin from "../layout/MakeAdmin";
 import BookingDetails from "../pages/BookingDetails";
 import AvailabilityChecking from "../pages/AvailabilityChecking";
+import UserWelcome from "../layout/UserWelcome";
 
 
 const routes = createBrowserRouter([
@@ -103,6 +104,10 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/user-dashboard",
+        element: <UserWelcome />,
+      },
+      {
+        path: "my-bookings",
         element: <UserBookings />,
       },
       {

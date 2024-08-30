@@ -56,13 +56,13 @@ const Navbar = () => {
               </li>
               {user && <li className="flex">
                 <Link to={user?.role === 'admin' ? `/admin-dashboard` : `/user-dashboard`} className="flex items-center -mb-1 border-b-2 border-transparent border-blue-600 text-[17px]">
-                  <button className="bg-transparent border-accent border-2 text-accent px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95">Dashboard</button>
+                  <button className="bg-transparent border-accent border-2 text-accent px-4 py-2 hover:shadow-lg rounded-full text-[15px] font-bold active:scale-95">Dashboard</button>
                 </Link>
               </li>}
               <li className="flex">
                 {user ?
                   <Link to='/login' className="flex items-center -mb-1">
-                    <button className="bg-accent text-white px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95" onClick={handleLogout}>Logout</button>
+                    <button className="bg-accent text-white px-4 py-2 hover:shadow-lg rounded-full text-[15px] active:scale-95" onClick={handleLogout}>Logout</button>
                   </Link>
                   :
                   <Link to='/signUp' className="flex items-center -mb-1">

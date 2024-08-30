@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 import UserSidebar, { SidebarItem } from "./UserSidebar"
 import { MdSportsHandball, MdCreateNewFolder } from "react-icons/md";
+import { LayoutDashboard } from "lucide-react";
 
 const UserDashboard = () => {
     return (
@@ -8,9 +9,15 @@ const UserDashboard = () => {
             <header className=" bg-secondary fixed z-10">
                 <UserSidebar>
                     <SidebarItem
+                        icon={<LayoutDashboard size={20} />}
+                        text='Dashboard'
+                        link='/user-dashboard'
+                        alert
+                    />
+                    <SidebarItem
                         icon={<MdSportsHandball size={20} />}
                         text='My Bookings'
-                        link='/user-dashboard'
+                        link='/user-dashboard/my-bookings'
                         alert
                     />
                     <SidebarItem
