@@ -44,7 +44,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="py-32">
+        <div className="py-16 md:py-3">
             {/* <div className="flex justify-between items-center gap-28">
                 <h1 className='text-5xl md:text-7xl text-grayText font-bold text-center'>Featured Facilities</h1>
                 <Link to='/all-facilities-list'>

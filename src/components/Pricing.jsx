@@ -7,14 +7,14 @@ const Pricing = () => {
 
     const pricingData = {
         monthly: [
-            { title: 'Personal', price: '0€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
-            { title: 'Professional', price: '8€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
-            { title: 'Enterprise', price: '19€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
+            { title: 'Personal', price: '0€', features: ['Life time membership', '48-hour support', 'Member resources'] },
+            { title: 'Professional', price: '8€', features: ['Life time membership', 'Private forum access', 'Member resources'] },
+            { title: 'Enterprise', price: '19€', features: ['Life time membership', 'Private forum access', 'Member resources'] },
         ],
         annually: [
-            { title: 'Personal', price: '0€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
-            { title: 'Professional', price: '80€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
-            { title: 'Enterprise', price: '190€', features: ['Lumet consectetur adipisicing', 'Feature 2', 'Feature 3'] },
+            { title: 'Personal', price: '0€', features: ['Life time membership', 'Private forum access', 'Member resources'] },
+            { title: 'Professional', price: '80€', features: ['Life time membership', 'Private forum access', 'Member resources'] },
+            { title: 'Enterprise', price: '190€', features: ['Life time membership', 'Automatic machines', 'Member resources'] },
         ]
     };
 

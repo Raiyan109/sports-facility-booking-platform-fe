@@ -42,7 +42,7 @@ const HowItWorks = () => {
     return (
         <section className="py-16 md:py-32">
             <div className="container p-4 mx-auto sm:p-10">
-                <div className="mb-12 space-y-16 text-center">
+                <div className="mb-12 space-y-10 text-center">
                     <div className="space-y-4">
                         <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">How it works</h1>
                         <p className="px-4 sm:px-8 lg:px-24 text-grayText/70">A step-by-step clear and straightforward guide to the booking process.</p>
@@ -66,7 +66,7 @@ const HowItWorks = () => {
                                 <ul className="grid grid-flow-col text-center text-primary bg-grayText rounded-full p-1 w-2/3 md:w-2/4">
                                     {tabsData.map((data) => (
                                         <li key={data.id}>
-                                            <a href="#page1" className={`flex justify-center py-4 ${activeTab === data.id ? 'bg-accent rounded-full shadow text-grayText' : ''
+                                            <a href="#page1" className={`flex justify-center py-2 md:py-3 ${activeTab === data.id ? 'bg-accent rounded-full shadow text-grayText' : ''
                                                 }`}
                                                 onClick={() => handleTabChange(data.id)}
                                             >{data.stepName}</a>
@@ -89,10 +89,10 @@ const HowItWorks = () => {
                                             }`}
                                     >
                                         {activeTab === data.id && (
-                                            <div className="border border-secondary flex flex-col-reverse rounded-2xl md:flex-row gap-5">
-                                                <div className="flex-1 flex flex-col items-start justify-center p-5 gap-12">
-                                                    <h2 className="text-grayText text-4xl max-w-[250px] text-left">{data.title}</h2>
-                                                    <h2 className="text-grayText/80 text-lg text-left">{data.description}</h2>
+                                            <div className="border border-secondary flex flex-col-reverse rounded-2xl md:flex-row">
+                                                <div className="flex-1 flex flex-col items-center md:items-start justify-center p-5 gap-10">
+                                                    <h2 className="text-grayText text-4xl max-w-[250px] text-center md:text-left">{data.title}</h2>
+                                                    <h2 className="text-grayText/80 text-lg text-center md:text-left max-w-xs">{data.description}</h2>
                                                     <Link to='/signUp'>
                                                         <button type="button" className="flex items-center justify-between w-full px-3 py-2 font-semibold tracking-wide rounded-full bg-accent text-grayText text-lg gap-3">{data.buttonText}
                                                             <ArrowRight />
@@ -100,7 +100,7 @@ const HowItWorks = () => {
                                                     </Link>
                                                 </div>
                                                 <div className="flex-1 w-full rounded-2xl">
-                                                    <img src={data.image} alt="" className="w-full h-96 object-cover rounded-t-2xl md:rounded-tr-2xl md:rounded-tl-none" />
+                                                    <img src={data.image} alt="" className="w-full h-80 md:h-[500px] object-cover rounded-t-2xl md:rounded-tr-2xl md:rounded-tl-none" />
                                                 </div>
                                             </div>
                                         )}

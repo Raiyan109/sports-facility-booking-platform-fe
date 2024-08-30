@@ -54,7 +54,7 @@ const SignUp = () => {
   return (
     <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
       <Navbar />
-      <div className="flex justify-center items-center flex-col md:flex-row relative bg-secondary mt-5 lg:mt-10 h-screen rounded-2xl">
+      <div className="flex justify-center items-center flex-col md:flex-row relative bg-secondary mt-5 rounded-2xl">
         <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
           <h1 className=" text-3xl md:text-5xl text-grayText text-center font-bold">Sign Up Here</h1>
           <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
@@ -72,7 +72,7 @@ const SignUp = () => {
                 <input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
@@ -80,7 +80,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
@@ -88,7 +88,7 @@ const SignUp = () => {
                 <input
                   type="number"
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
@@ -96,7 +96,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   onChange={(e) => setAddress(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               {/* Role */}
@@ -130,7 +130,7 @@ const SignUp = () => {
           </div>
         </div>
         <div className='hidden lg:block flex-1'>
-          <img src={heroImg} alt="" className='w-full h-[800px] object-cover rounded-2xl' />
+          <img src={heroImg} alt="" className='w-full h-[800px] object-cover rounded-2xl rounded-tl-none' />
         </div>
       </div>
     </div>

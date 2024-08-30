@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
       <Navbar />
-      <div className="flex justify-center items-center flex-col md:flex-row relative bg-secondary mt-5 lg:mt-10 h-screen rounded-2xl">
+      <div className="flex mt-5 items-center justify-center flex-col md:flex-row relative bg-secondary rounded-2xl">
         <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
           <h1 className="text-3xl md:text-5xl text-grayText text-center font-bold">Login Here</h1>
           <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const Login = () => {
                 <input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
               <div>
@@ -62,7 +62,7 @@ const Login = () => {
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
                 />
               </div>
             </div>
@@ -73,13 +73,13 @@ const Login = () => {
             </div>
           </form>
           <div className="flex justify-center items-center">
-            <Link to="/login" className="text-lg font-semibold text-grayText">
-              or sign up here
+            <Link to="/signUp" className="text-lg font-semibold text-grayText">
+              Or Sign Up Here
             </Link>
           </div>
         </div>
         <div className='hidden lg:block flex-1'>
-          <img src={heroImg} alt="" className='w-full h-[800px] object-cover rounded-2xl' />
+          <img src={heroImg} alt="" className='w-full object-cover rounded-2xl rounded-tl-none h-[700px]' />
         </div>
       </div>
     </div>
