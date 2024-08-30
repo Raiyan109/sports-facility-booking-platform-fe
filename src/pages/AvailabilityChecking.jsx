@@ -141,7 +141,12 @@ const AvailabilityChecking = () => {
                 endTime: selectedEndTimeSlot
             }
             const res = await createBooking(bookingInfo).unwrap()
-            console.log(res);
+            if (res.success) {
+                console.log(res)
+                window.location.href = res.data.payment_url
+            } else {
+                console.error('Order creation failed:', res.message);
+            }
 
 
             MySwal.fire({
