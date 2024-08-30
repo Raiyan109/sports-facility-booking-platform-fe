@@ -93,38 +93,38 @@ const Navbar = () => {
           className="lg:hidden bg-secondary text-grayText mt-7 py-5 absolute  md:w-[600] top-16 inset-0 bg-opacity-60 backdrop-blur-sm z-10">
           <ul className="flex flex-col items-center space-y-3 mt-4">
             <li className="flex">
-              <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent relative text-5xl leading-snug hover:underline">
+              <Link to='/' className="flex items-center px-4 -mb-1 border-b-2 border-transparent relative text-4xl leading-snug hover:underline">
                 Home
               </Link>
             </li>
             <li className="flex">
-              <Link to='/all-facilities-list' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+              <Link to='/all-facilities-list' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-4xl leading-snug hover:underline">
                 Facilities
               </Link>
             </li>
             <li className="flex">
-              <Link to='/about' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+              <Link to='/about' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-4xl leading-snug hover:underline">
                 About Us
               </Link>
             </li>
             <li className="flex">
-              <Link to='/contact' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+              <Link to='/contact' className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-4xl leading-snug hover:underline">
                 Contact Us
               </Link>
             </li>
             {user && <li className="flex">
-              <Link to={user?.role === 'admin' ? `/admin-dashboard` : `/user-dashboard`} className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-5xl leading-snug hover:underline">
+              <Link to={user?.role === 'admin' ? `/admin-dashboard` : `/user-dashboard`} className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-grayText border-blue-600 text-4xl leading-snug hover:underline">
                 Dashboard
               </Link>
             </li>}
             <li className="flex">
               {user ?
                 <Link to='/login' className="flex items-center -mb-1">
-                  <button className="bg-accent text-white px-4 py-2 hover:shadow-lg rounded-full text-sm active:scale-95" onClick={handleLogout}>Logout</button>
+                  <button className="bg-primary text-white px-12 py-2 hover:shadow-lg rounded-full text-2xl active:scale-95" onClick={handleLogout}>Logout</button>
                 </Link>
                 :
                 <Link to='/signUp' className="flex items-center -mb-1">
-                  <Button text='Sign Up' />
+                  <button className="bg-primary text-white px-12 py-2 hover:shadow-lg rounded-full text-2xl active:scale-95">Sign Up</button>
                 </Link>}
             </li>
             {/* <li className="flex">

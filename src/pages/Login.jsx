@@ -54,7 +54,7 @@ const Login = () => {
                 <input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-grayText focus:text-primary"
                 />
               </div>
               <div>
@@ -62,7 +62,7 @@ const Login = () => {
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                  className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-grayText focus:text-primary"
                 />
               </div>
             </div>
