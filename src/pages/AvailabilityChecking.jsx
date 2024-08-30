@@ -132,7 +132,7 @@ const AvailabilityChecking = () => {
     async function onBookingSubmit(data) {
 
         const formattedDate = moment(data.bookingDate).format('YYYY-MM-DD')
-        console.log(formattedDate);
+
         try {
             const bookingInfo = {
                 facility: id,
@@ -142,8 +142,8 @@ const AvailabilityChecking = () => {
             }
             const res = await createBooking(bookingInfo).unwrap()
             if (res.success) {
-                console.log(res)
-                window.location.href = res.data.payment_url
+
+                window.location.href = res.data.paymentSession.payment_url
             } else {
                 console.error('Order creation failed:', res.message);
             }

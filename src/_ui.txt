@@ -8,3 +8,5 @@ Calender in dashboard: https://www.youtube.com/watch?v=myYlGLFxZas&t=44s
 Booking details: https://dribbble.com/shots/21448800-Tabato-Calendar-app-Bookings
 Manage Bookings: https://dribbble.com/shots/24179871-Managing-Reservation-Vacation-Rental-Platform
 Dashboard Schedule: https://dribbble.com/shots/20357922-Nginap-Hotel-Management-Booking-Schedule
+https://stackoverflow.com/questions/77976530/redux-toolkit-queries-from-a-button-action
+https://stackoverflow.com/questions/65583610/in-react-how-to-convert-utc-datetime-to-more-readable-string-inside-the-table
