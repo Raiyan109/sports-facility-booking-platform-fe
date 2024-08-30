@@ -25,9 +25,9 @@ const FeaturedFacilities = () => {
             </div> */}
             <div className="space-y-4 text-center">
                 <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">Featured Facilities</h1>
-                <p className="px-4 sm:px-8 lg:px-24 text-grayText/70">Visit our featured facilities showroom and book your facility</p>
+                <p className="px-4 sm:px-8 lg:px-24 text-grayText/70 text-sm md:text-md">Visit our featured facilities showroom and book your facility</p>
             </div>
-            <div className="pt-14 flex items-center justify-center">
+            <div className="pt-14 flex items-center justify-center px-5">
                 <Carousel className="w-full max-w-7xl">
                     <CarouselContent className="-ml-1">
                         {/* Array.from({ length: 5 }) */}
@@ -35,9 +35,13 @@ const FeaturedFacilities = () => {
                             <CarouselItem key={facility?._id} className="pl-1 md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex aspect-square gap-5 p-0 h-full w-full">
-                                            <img src={facility?.image} alt="" className="w-full object-cover object-center" />
+                                        <CardContent className="flex aspect-square gap-5 p-0 h-full w-full relative">
+                                            <img src={facility?.image} alt="" className="w-full h-2/3 object-cover object-center" />
                                             {/* <span className="text-2xl font-semibold">{facility?.name}</span> */}
+                                            <div className="absolute bottom-5 left-5 space-y-2">
+                                                <h1 className="text-primary text-xl">{facility?.name}</h1>
+                                                <h1 className="text-primary">{facility?.description.slice(0, 70)}t</h1>
+                                            </div>
                                         </CardContent>
                                     </Card>
                                 </div>

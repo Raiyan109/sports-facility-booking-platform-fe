@@ -22,7 +22,7 @@ const Navbar = () => {
   const activeLink = 'text-primary font-bold flex items-center px-4 -mb-1 text-xl'
   return (
     <div>
-      <header className="py-6 mt-3 px-4 md:px-0">
+      <header className="py-6 mt-3">
         <div className="flex justify-between h-8 lg:h-8 py-2 lg:py-3">
           <div className="flex gap-10">
             <Link to='/' className="flex items-center p-2 text-xl">
