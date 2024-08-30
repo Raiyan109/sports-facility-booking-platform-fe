@@ -75,29 +75,29 @@ const AvailabilityChecking = () => {
     }, [])
 
     const getTime = () => {
-        const timeList = []
+        const timeList = [];
+
+        // Add times from 10:00 to 12:30 (10:00 AM to 12:30 PM)
         for (let i = 10; i <= 12; i++) {
             timeList.push({
-                time: i + ':00'
-                // time: i + ':00 AM'
-            })
+                time: `${i}:00`
+            });
             timeList.push({
-                time: i + ':30'
-                // time: i + ':30 AM'
-            })
-        }
-        for (let i = 1; i <= 6; i++) {
-            timeList.push({
-                time: i + ':00'
-                // time: i + ':00 PM'
-            })
-            timeList.push({
-                time: i + ':30'
-                // time: i + ':30 PM'
-            })
+                time: `${i}:30`
+            });
         }
 
-        setTimeSlot(timeList)
+        // Add times from 13:00 to 18:30 (1:00 PM to 6:30 PM)
+        for (let i = 13; i <= 18; i++) {
+            timeList.push({
+                time: `${i}:00`
+            });
+            timeList.push({
+                time: `${i}:30`
+            });
+        }
+
+        setTimeSlot(timeList);
     }
 
     // Check Availability Form Handler
