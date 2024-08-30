@@ -356,11 +356,11 @@ const AvailabilityChecking = () => {
                                                 </FormItem>
                                             )}
                                         />
-                                        <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Confirm</button>
+                                        <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Proceed to checkout</button>
                                     </form>
                                     {error?.data?.message}
                                 </Form>
-                                <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Proceed to pay</button>
+                                {/* <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Proceed to pay</button> */}
                             </div>
 
                             {/* Time slot dropdown */}
