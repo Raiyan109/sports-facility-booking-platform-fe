@@ -78,7 +78,7 @@ const AvailabilityChecking = () => {
         const timeList = [];
 
         // Add times from 10:00 to 12:30 (10:00 AM to 12:30 PM)
-        for (let i = 10; i <= 12; i++) {
+        for (let i = 8; i <= 12; i++) {
             timeList.push({
                 time: `${i}:00`
             });
