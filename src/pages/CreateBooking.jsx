@@ -3,7 +3,6 @@ import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
 
 const CreateBooking = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
-    console.log(facilities);
 
     return (
         <div className='py-3 space-y-8'>

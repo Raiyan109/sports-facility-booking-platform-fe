@@ -113,9 +113,6 @@ const AvailabilityChecking = () => {
         try {
             const result = await checkAvailability(availabilityQuery).unwrap();
             setAvailabilityData(result)
-            console.log(result);
-
-
             // success, any additional logic
         } catch (error) {
             console.log(error?.data?.message);
@@ -157,7 +154,10 @@ const AvailabilityChecking = () => {
             });
             // success, any additional logic
         } catch (error) {
-            console.log(error?.data?.message);
+            MySwal.fire({
+                title: error?.data?.message,
+                icon: "error",
+            });
         }
         toast({
             title: "You submitted the following values:",
