@@ -78,7 +78,7 @@ const AvailabilityChecking = () => {
         const timeList = [];
 
         // Add times from 10:00 to 12:30 (10:00 AM to 12:30 PM)
-        for (let i = 8; i <= 12; i++) {
+        for (let i = 10; i <= 12; i++) {
             timeList.push({
                 time: `${i}:00`
             });
@@ -113,6 +113,8 @@ const AvailabilityChecking = () => {
         try {
             const result = await checkAvailability(availabilityQuery).unwrap();
             setAvailabilityData(result)
+            console.log(result);
+
 
             // success, any additional logic
         } catch (error) {
@@ -277,8 +279,9 @@ const AvailabilityChecking = () => {
                         {availabilityData?.data?.length > 0 ? (
                             <div className="space-y-16">
                                 <h2 className="text-grayText text-3xl">Available Time slots for this facility for <span className="font-bold underline">{showDateForResult}</span></h2>
-                                <div className="flex gap-16">
+                                <div className="flex gap-12 flex-wrap">
                                     {/* Result of checking availability */}
+                                    {/* .filter(item => item?.isBooked === 'confirmed')? */}
                                     {availabilityData?.data?.map((item) => (
                                         <div key={item?._id} className="border-secondary border rounded-2xl flex justify-center items-center gap-7 w-full p-3">
                                             <h1 className="text-grayText">{item?.startTime} </h1>

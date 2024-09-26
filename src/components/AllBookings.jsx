@@ -3,6 +3,8 @@ import { useCancelBookingMutation, useGetAllBookingsQuery } from "../redux/featu
 import moment from "moment"
 const AllBookings = () => {
     const { data: bookings } = useGetAllBookingsQuery()
+    console.log(bookings);
+
 
 
     return (
