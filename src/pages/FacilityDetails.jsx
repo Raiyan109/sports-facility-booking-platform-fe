@@ -13,7 +13,7 @@ const FacilityDetails = () => {
         <div className="">
             <div className="max-w-[1480px] mx-auto container overflow-hidden px-10">
                 <Navbar />
-                <div className="h-screen py-12 space-y-10">
+                <div className="min-h-screen py-12 space-y-10">
                     <div className="flex flex-col gap-4">
                         <Link to='/all-facilities-list'>
                             <div className="flex items-center gap-3 text-grayText text-sm">
@@ -27,7 +27,7 @@ const FacilityDetails = () => {
                             <p className="text-sm">{facility?.data?.location}</p>
                         </div>
                     </div>
-                    <div className="flex gap-20 justify-between">
+                    <div className="flex flex-col md:flex-row gap-20 justify-between">
                         <div className="flex-1">
                             <img src={facility?.data?.image} alt="" className="w-full h-full object-cover rounded-2xl" />
                         </div>
