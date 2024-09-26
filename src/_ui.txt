@@ -10,3 +10,10 @@ Manage Bookings: https://dribbble.com/shots/24179871-Managing-Reservation-Vacati
 Dashboard Schedule: https://dribbble.com/shots/20357922-Nginap-Hotel-Management-Booking-Schedule
 https://stackoverflow.com/questions/77976530/redux-toolkit-queries-from-a-button-action
 https://stackoverflow.com/questions/65583610/in-react-how-to-convert-utc-datetime-to-more-readable-string-inside-the-table
+
+Extra works after assignment
+1. wishlist (no installation)
+2. Navlink (no installation)
+3. Forms React hook form and server side validation
+4. Shadcn charts (install shadcn charts)
+5. phone number validation (npm install react-phone-number-input)https://www.npmjs.com/package/react-phone-number-input

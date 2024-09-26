@@ -21,6 +21,7 @@ import MakeAdmin from "../layout/MakeAdmin";
 import BookingDetails from "../pages/BookingDetails";
 import AvailabilityChecking from "../pages/AvailabilityChecking";
 import UserWelcome from "../layout/UserWelcome";
+import Custom404 from "../components/Custom404";
 
 
 const routes = createBrowserRouter([
@@ -116,6 +117,10 @@ const routes = createBrowserRouter([
       },
 
     ]
+  },
+  {
+    path: "*",
+    element: <Custom404 />,
   },
 ]);
 

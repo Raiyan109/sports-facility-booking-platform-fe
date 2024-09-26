@@ -31,10 +31,6 @@ const Facilities = () => {
                     />)
                 }
             </div>
-
-            {
-
-            }
         </div>
     )
 }

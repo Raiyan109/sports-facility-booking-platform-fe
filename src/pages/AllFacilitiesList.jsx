@@ -88,7 +88,7 @@ const AllFacilitiesList = () => {
     const lastPostIndex = currentPage * postPerPage
     const firstPostIndex = lastPostIndex - postPerPage
     const currentResults = titles.slice(firstPostIndex, lastPostIndex);
-    console.log(currentResults);
+
 
     const pages = []
     const totalPosts = facilities?.data?.length

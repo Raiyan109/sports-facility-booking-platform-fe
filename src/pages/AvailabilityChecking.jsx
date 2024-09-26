@@ -275,14 +275,15 @@ const AvailabilityChecking = () => {
                     {/* Availability Result section */}
                     <div className="border border-secondary rounded-2xl p-10 w-full col-span-2 order-4 lg:order-4 space-y-5" >
                         {availabilityData?.data?.length > 0 ? (
-                            <div className="space-y-5">
-                                <h2 className="text-grayText text-3xl">Available Time slots for this facility at <span className="font-bold underline">{showDateForResult}</span></h2>
-                                <div className="space-y-3">
+                            <div className="space-y-16">
+                                <h2 className="text-grayText text-3xl">Available Time slots for this facility for <span className="font-bold underline">{showDateForResult}</span></h2>
+                                <div className="flex gap-16">
                                     {/* Result of checking availability */}
                                     {availabilityData?.data?.map((item) => (
-                                        <div key={item?._id} className="border-secondary border rounded-2xl flex justify-between md:flex-row p-3">
-                                            <h1 className="text-grayText">Start Time: {item?.startTime} - </h1>
-                                            <h1 className="text-grayText">End Time: {item?.endTime}</h1>
+                                        <div key={item?._id} className="border-secondary border rounded-2xl flex justify-center items-center gap-7 w-full p-3">
+                                            <h1 className="text-grayText">{item?.startTime} </h1>
+                                            <h1 className="text-grayText">-</h1>
+                                            <h1 className="text-grayText">{item?.endTime}</h1>
                                         </div>
                                     ))}
                                 </div>
