@@ -9,6 +9,7 @@ import {
 } from "../components/ui/carousel"
 import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
 import { ArrowRight } from "lucide-react"
+import FeaturedFacilitiesSkeleton from "./skeleton/FeaturedFacilitiesSkeleton"
 
 const FeaturedFacilities = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
@@ -31,46 +32,39 @@ const FeaturedFacilities = () => {
                 <Carousel className="w-full max-w-[1400px]">
                     <CarouselContent className="-ml-1 ">
                         {/* Array.from({ length: 5 }) */}
-                        {facilities?.data?.map((facility) => (
-                            <CarouselItem key={facility?._id} className="pl-1 md:basis-1/2 lg:basis-1/4">
-                                <div className="p-1">
-                                    <Card>
-                                        <CardContent className="flex aspect-square gap-5 p-0 h-full w-full relative">
-
-                                            <div
-                                                className="relative group cursor-pointer overflow-hidden duration-500 w-full h-full bg-secondary text-gray-50 p-5"
-                                            >
-                                                <div className="">
-                                                    <div
-                                                        className="group-hover:scale-110 w-full h-[369px] md:h-44 lg:h-48 xl:h-72 bg-primary duration-500"
-                                                    >
-                                                        <img src={facility?.image} alt="" className="w-full h-full  object-cover object-center" />
-                                                    </div>
-                                                    <div
-                                                        className="absolute w-56 left-0 p-5 -bottom-12 duration-500 group-hover:-translate-y-12"
-                                                    >
-                                                        <div
-                                                            className="absolute -z-10 left-0 w-64 h-28 opacity-0 duration-500 group-hover:opacity-50 group-hover:bg-primary"
-                                                        ></div>
-                                                        <span className="text-xl font-bold">{facility?.name}</span>
-                                                        <p className="group-hover:opacity-100 w-56 duration-500 opacity-0">
-                                                            {facility?.description.slice(0, 70)}
-                                                        </p>
+                        {isLoading
+                            ? Array.from({ length: 5 }).map((_, index) => (
+                                <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/4">
+                                    <FeaturedFacilitiesSkeleton />
+                                </CarouselItem>
+                            ))
+                            : facilities?.data?.map((facility) => (
+                                <CarouselItem key={facility?._id} className="pl-1 md:basis-1/2 lg:basis-1/4">
+                                    <div className="p-1">
+                                        <Card>
+                                            <CardContent className="flex aspect-square gap-5 p-0 h-full w-full relative">
+                                                <div className="relative group cursor-pointer overflow-hidden duration-500 w-full h-full bg-secondary text-gray-50 p-5">
+                                                    <div>
+                                                        <div className="group-hover:scale-110 w-full h-[369px] md:h-44 lg:h-48 xl:h-72 bg-primary duration-500">
+                                                            <img
+                                                                src={facility?.image}
+                                                                alt=""
+                                                                className="w-full h-full object-cover object-center"
+                                                            />
+                                                        </div>
+                                                        <div className="absolute w-56 left-0 p-5 -bottom-12 duration-500 group-hover:-translate-y-12">
+                                                            <span className="text-xl font-bold">{facility?.name}</span>
+                                                            <p className="group-hover:opacity-100 w-56 duration-500 opacity-0">
+                                                                {facility?.description.slice(0, 70)}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            {/* <img src={facility?.image} alt="" className="w-full h-2/3 object-cover object-center" />
-                                            
-                                            <div className="absolute bottom-5 left-5 space-y-2">
-                                                <h1 className="text-primary text-xl">{facility?.name}</h1>
-                                                <h1 className="text-primary">{facility?.description.slice(0, 70)}t</h1>
-                                            </div> */}
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        ))}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                </CarouselItem>
+                            ))}
                     </CarouselContent>
                     <CarouselPrevious />
                     <CarouselNext />

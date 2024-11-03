@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
 import Facility from "./Facility"
 import { ArrowRight } from "lucide-react"
+import FacilityCardSkeleton from "./skeleton/FacilityCardSkeleton"
 
 const Facilities = () => {
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
@@ -24,12 +25,15 @@ const Facilities = () => {
                 <p className="px-4 sm:px-8 lg:px-24 text-grayText/70 text-sm md:text-md">Visit our facilities showroom and book your facility</p>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
-                {
-                    facilities && facilities?.data?.filter(facility => facility?.isDeleted === false)?.map(facility => <Facility
-                        key={facility._id}
-                        facility={facility}
-                    />)
-                }
+                {isLoading
+                    ? Array.from({ length: 6 }).map((_, index) => (
+                        <FacilityCardSkeleton key={index} />
+                    ))
+                    : facilities?.data
+                        ?.filter((facility) => facility?.isDeleted === false)
+                        ?.map((facility) => (
+                            <Facility key={facility._id} facility={facility} />
+                        ))}
             </div>
         </div>
     )
