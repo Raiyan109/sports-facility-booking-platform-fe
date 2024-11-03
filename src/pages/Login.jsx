@@ -11,6 +11,7 @@ import heroImg from '../assets/pexels-yogendras31-4747326.jpg'
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/features/auth/authSlice";
+import DummyAdminCred from "./DummyAdminCred";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -47,6 +48,7 @@ const Login = () => {
       <div className="flex mt-5 items-center justify-center flex-col md:flex-row relative bg-secondary rounded-2xl">
         <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
           <h1 className="text-3xl md:text-5xl text-grayText text-center font-bold">Login Here</h1>
+          <DummyAdminCred />
           <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-x-10 gap-y-5 items-end">
               <div>
