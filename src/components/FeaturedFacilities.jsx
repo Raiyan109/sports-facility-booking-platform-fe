@@ -42,12 +42,12 @@ const FeaturedFacilities = () => {
                                             >
                                                 <div className="">
                                                     <div
-                                                        className="group-hover:scale-110 w-full h-60 bg-primary duration-500"
+                                                        className="group-hover:scale-110 w-full h-[369px] md:h-44 lg:h-48 xl:h-72 bg-primary duration-500"
                                                     >
                                                         <img src={facility?.image} alt="" className="w-full h-full  object-cover object-center" />
                                                     </div>
                                                     <div
-                                                        className="absolute w-56 left-0 p-5 -bottom-16 duration-500 group-hover:-translate-y-12"
+                                                        className="absolute w-56 left-0 p-5 -bottom-12 duration-500 group-hover:-translate-y-12"
                                                     >
                                                         <div
                                                             className="absolute -z-10 left-0 w-64 h-28 opacity-0 duration-500 group-hover:opacity-50 group-hover:bg-primary"
