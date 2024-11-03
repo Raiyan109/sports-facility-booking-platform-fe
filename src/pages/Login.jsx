@@ -16,23 +16,42 @@ import DummyAdminCred from "./DummyAdminCred";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: '',
+  });
   const [loading, setLoading] = useState(false);
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const [login] = useLoginMutation()
   const dispatch = useDispatch()
 
+  const fillAdminCredentials = () => {
+    setCredentials({
+      email: "admin1@g.com",
+      password: "123456",
+    });
+  };
+
+  const fillUserCredentials = () => {
+    setCredentials({
+      email: "user1@g.com",
+      password: "123456",
+    });
+  };
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const userInfo = {
-      email,
-      password,
+
+    if (credentials.email && credentials.password) {
+      const res = await login(credentials).unwrap()
+      console.log(res);
+
+      dispatch(setUser({ user: res.data, token: res.token }))
+      setLoading(false);
+      navigate("/");
     }
-    const res = await login(userInfo).unwrap()
-    dispatch(setUser({ user: res.data, token: res.token }))
-    setLoading(false);
-    navigate("/");
   };
   if (loading) {
     return (
@@ -48,14 +67,15 @@ const Login = () => {
       <div className="flex mt-5 items-center justify-center flex-col md:flex-row relative bg-secondary rounded-2xl">
         <div className="flex-1 rounded-md space-y-10 w-96 flex flex-col items-center py-12">
           <h1 className="text-3xl md:text-5xl text-grayText text-center font-bold">Login Here</h1>
-          <DummyAdminCred />
+          <DummyAdminCred fillAdminCredentials={fillAdminCredentials} fillUserCredentials={fillUserCredentials} />
           <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-x-10 gap-y-5 items-end">
               <div>
                 <label className="block mb-1 text-sm text-grayText">Email</label>
                 <input
                   type="email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={credentials.email}
+                  onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
                   className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-grayText focus:text-primary"
                 />
               </div>
@@ -63,7 +83,8 @@ const Login = () => {
                 <label className="block mb-1 text-sm text-grayText">Password</label>
                 <input
                   type="password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={credentials.password}
+                  onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
                   className="w-full appearance-none text-grayText  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-grayText focus:text-primary"
                 />
               </div>
