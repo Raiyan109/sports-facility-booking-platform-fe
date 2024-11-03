@@ -2,9 +2,24 @@ import { motion } from 'framer-motion'
 import heroImg from '../assets/hero-img.png'
 import { Link } from 'react-router-dom';
 const Hero = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        console.log("Geolocation not supported");
+    }
+
+    function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    }
+
+    function error() {
+        console.log("Unable to retrieve your location");
+    }
     return (
         // w-full h-[calc(100vh-8ch)]
-        <div className="flex flex-col md:flex-row relative h-screen py-16 md:py-32">
+        <div className="flex flex-col md:flex-row relative h-[calc(100vh-220px)] py-16 md:py-20">
             <div className="flex-1 w-full flex justify-center md:justify-between gap-12 pb-10">
                 <motion.div className='rounded-md flex justify-center items-center md:items-stretch flex-col space-y-11'
                     initial={{ opacity: 0, y: -10 }}
