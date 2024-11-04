@@ -19,7 +19,7 @@ const Pricing = () => {
     };
 
     return (
-        <section className="py-6">
+        <section className="py-16 md:pb-32">
             <div className="container p-4 mx-auto sm:p-10">
                 <div className="mb-12 space-y-4 text-center">
                     <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">Pricing</h1>

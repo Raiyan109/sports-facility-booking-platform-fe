@@ -5,6 +5,7 @@ import HowItWorks from "../components/HowItWorks";
 import Navbar from "../components/Navbar";
 import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
+import WhatWeDo from "../components/WhatWeDo";
 import Hero from "./Hero";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
         {/* <Search /> */}
         <Facilities />
         <HowItWorks />
+        <WhatWeDo />
         <Testimonials />
         <Pricing />
       </div>

@@ -40,9 +40,28 @@ const Facility = ({ facility }) => {
         //     )}
         // </div>
         <div className="rounded-2xl border border-secondary shadow-xl bg-primary/40">
+
+
+
             <div className="relative">
+
                 <img src={facility?.image} alt="" className="object-cover object-center w-full rounded-t-2xl h-72 bg-gray-500" />
-                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5">
+                {/* <div
+                    className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5 ring-1 ring-white md:hidden"
+                >
+                    <div
+                        className="relative group hover:cursor-pointer hover:bg-slate-800 p-2 rounded-full transition-all duration-500"
+                    >
+                        <MapPin size={20} />
+
+                        <div
+                            className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100"
+                        >
+                            Home
+                        </div>
+                    </div>
+                </div> */}
+                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5 ">
                     <MapPin size={20} />
                     <p className="text-sm">{facility?.location}</p>
                 </div>
@@ -62,7 +81,10 @@ const Facility = ({ facility }) => {
                             </div>
                         </div>
                         <h2 className="text-grayText text-2xl">{facility?.name}</h2>
-                        <h2 className="text-grayText/80 text-sm">{facility?.description}</h2>
+                        <h2 className="text-grayText/80 text-sm h-24 overflow-hidden">
+                            {facility?.description.length > 130 ? `${facility?.description.slice(0, 130)}...` : facility?.description}
+
+                        </h2>
                     </div>
                     <Link to={`/all-facilities-list/${facility?._id}`}>
                         <button type="button" className="flex items-center justify-between w-full p-3 font-semibold tracking-wide rounded-full bg-accent text-grayText">See Details

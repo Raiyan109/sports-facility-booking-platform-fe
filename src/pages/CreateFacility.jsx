@@ -9,6 +9,7 @@ const CreateFacility = () => {
     const [description, setDescription] = useState("");
     const [pricePerHour, setPricePerHour] = useState(0);
     const [location, setLocation] = useState("");
+    const [image, setImage] = useState("");
     const [createFacility] = useCreateFacilityMutation()
     const MySwal = withReactContent(Swal);
     const navigate = useNavigate()
@@ -20,7 +21,8 @@ const CreateFacility = () => {
             name,
             description,
             pricePerHour,
-            location
+            location,
+            image
         }
 
         const res = await createFacility(facility).unwrap()
@@ -39,6 +41,14 @@ const CreateFacility = () => {
                 <h1 className="text-3xl md:text-5xl text-grayText text-center font-bold">Create Facility</h1>
                 <form className="space-y-10 w-96 px-2 lg:px-0" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 gap-x-10 gap-y-5 items-end">
+                        <div>
+                            <label className="block mb-1 text-sm text-grayText">Image</label>
+                            <input
+                                type="text"
+                                onChange={(e) => setImage(e.target.value)}
+                                className="w-full appearance-none text-primary  placeholder:text-primary  inline-block bg-secondary  px-3 h-9 border border-grayText  rounded-md focus:outline-none focus:bg-neutral-100 "
+                            />
+                        </div>
                         <div>
                             <label className="block mb-1 text-sm text-grayText">Name</label>
                             <input
@@ -73,7 +83,7 @@ const CreateFacility = () => {
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
-                        <motion.button className="w-full bg-accent hover:bg-primary/80 text-grayText font-medium py-3 px-6 rounded-full ease-in-out duration-100">
+                        <motion.button className="w-full bg-accent hover:bg-accent/80 text-grayText font-medium py-3 px-6 rounded-full ease-in-out duration-100">
                             Create
                         </motion.button>
                     </div>

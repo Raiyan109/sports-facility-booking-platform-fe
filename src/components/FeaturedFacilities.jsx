@@ -52,7 +52,7 @@ const FeaturedFacilities = () => {
                                                                 className="w-full h-full object-cover object-center"
                                                             />
                                                         </div>
-                                                        <div className="absolute w-56 left-0 p-5 -bottom-12 duration-500 group-hover:-translate-y-12">
+                                                        <div className="absolute w-56 left-0 p-5 -bottom-12 duration-500 group-hover:-translate-y-12 group-hover:bg-primary/50">
                                                             <span className="text-xl font-bold">{facility?.name}</span>
                                                             <p className="group-hover:opacity-100 w-56 duration-500 opacity-0">
                                                                 {facility?.description.slice(0, 70)}

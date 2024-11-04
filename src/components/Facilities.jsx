@@ -24,7 +24,7 @@ const Facilities = () => {
                 <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-grayText">Our Facilities</h1>
                 <p className="px-4 sm:px-8 lg:px-24 text-grayText/70 text-sm md:text-md">Visit our facilities showroom and book your facility</p>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-5'>
                 {isLoading
                     ? Array.from({ length: 6 }).map((_, index) => (
                         <FacilityCardSkeleton key={index} />
