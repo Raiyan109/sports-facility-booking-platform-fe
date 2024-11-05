@@ -13,12 +13,12 @@ const colors = {
 const FacilityDetails = () => {
     const { id } = useParams();
     const { data: facility, isLoading } = useGetSingleFacilityQuery(id);
-    console.log(facility.data.ratings.map((rating) => rating.rating));
+
 
     const calculateRatingsAverage = () => {
         if (!facility?.data?.ratings || facility?.data?.ratings?.length === 0) {
             // Return 0 if there are no reviews
-            return 0;
+            return;
         }
 
         // Calculate the average rating safely
@@ -73,7 +73,7 @@ const FacilityDetails = () => {
                                 <img src={facility?.data?.image} alt="" className="w-full h-full object-cover rounded-2xl" />
                             )}
                         </div>
-                        <div className="flex-1 max-w-2xl flex flex-col gap-20">
+                        <div className="flex-1 max-w-2xl flex flex-col gap-16">
                             <div className="space-y-5">
                                 {isLoading ? (
                                     <div className="animate-pulse space-y-4">
@@ -90,23 +90,29 @@ const FacilityDetails = () => {
                                     </>
                                 )}
 
-                                <div className="flex items-center">
-                                    {averageRating && stars.map((_, index) => {
-                                        return (
-                                            <Star
-                                                key={index}
-                                                size={25}
-                                                fill={parseInt(averageRating) > index ? colors.orange : colors.grey}
-                                                strokeWidth={0}
-                                            />
-                                        )
-                                    })}
-                                    <p className="text-grayText text-xl ml-3">({averageRating})</p>
-                                </div>
+                                {isLoading ? (
+                                    <div className="h-6 w-32 bg-secondary rounded"></div>
+                                ) : (
+                                    <div className="flex items-center">
+                                        {averageRating ? stars.map((_, index) => {
+                                            return (
+                                                <Star
+                                                    key={index}
+                                                    size={25}
+                                                    fill={parseInt(averageRating) > index ? colors.orange : colors.grey}
+                                                    strokeWidth={0}
+                                                />
+                                            )
+                                        }) : (
+                                            <p className="text-grayText text-sm">No ratings yet</p>
+                                        )}
+                                        {averageRating && <p className="text-grayText text-xl ml-3">({averageRating})</p>}
+                                    </div>
+                                )}
                             </div>
                             {!isLoading && (
                                 <Link to={`/availability-checking/${facility?.data?._id}`}>
-                                    <button type="button" className="flex items-center justify-between w-fit p-3 font-semibold tracking-wide rounded-full bg-accent text-grayText">Book Now
+                                    <button type="button" className="flex items-center justify-between w-full md:w-2/3 py-3 px-6 font-semibold tracking-wide rounded-full bg-accent text-grayText text-xl">Book Now
                                         <ArrowRight />
                                     </button>
                                 </Link>

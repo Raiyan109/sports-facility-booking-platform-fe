@@ -6,6 +6,10 @@ export const bookingApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities']
             query: () => '/bookings',
             providesTags: ['Bookings']
         }),
+        getBookingTrends: builder.query({
+            query: () => '/bookings/bookingTrends',
+            // providesTags: ['User']
+        }),
         getSingleBooking: builder.query({
             query: (bookingId) => ({
                 url: `/bookings/${bookingId}`,
@@ -35,4 +39,4 @@ export const bookingApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities']
     })
 })
 
-export const { useGetAllBookingsQuery, useGetUserBookingsQuery, useCreateBookingMutation, useCancelBookingMutation, useGetSingleBookingQuery } = bookingApi
+export const { useGetAllBookingsQuery, useGetUserBookingsQuery, useCreateBookingMutation, useCancelBookingMutation, useGetSingleBookingQuery, useGetBookingTrendsQuery } = bookingApi
