@@ -44,7 +44,7 @@ const RadarAverageRating = ({ averageRatings }) => {
 
     return (
 
-        <ResponsiveContainer width={600} height={300}>
+        <ResponsiveContainer width="95%" height={300}>
             <RadarChart cx="50%" cy="50%" outerRadius="80%" data={averageRatings?.data}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey='name' />
