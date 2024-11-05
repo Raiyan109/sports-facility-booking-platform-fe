@@ -36,7 +36,11 @@ export const facilityApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'
             }),
             invalidatesTags: ['Facilities']
         }),
+        getAverageRatings: builder.query({
+            query: () => '/facility/averageRatings',
+            providesTags: ['Facilities']
+        }),
     })
 })
 
-export const { useGetFacilitiesQuery, useCreateFacilityMutation, useDeleteFacilityMutation, useGetSingleFacilityQuery, useUpdateFacilityMutation } = facilityApi
+export const { useGetFacilitiesQuery, useCreateFacilityMutation, useDeleteFacilityMutation, useGetSingleFacilityQuery, useUpdateFacilityMutation, useGetAverageRatingsQuery } = facilityApi
