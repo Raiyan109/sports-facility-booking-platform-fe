@@ -43,11 +43,11 @@ const AvailabilityChecking = () => {
     const [selectedStartTimeSlot, setSelectedStartTimeSlot] = useState('')
     const [selectedEndTimeSlot, setSelectedEndTimeSlot] = useState('')
     const [timeSlot, setTimeSlot] = useState([])
+
     const [createBooking] = useCreateBookingMutation()
     const { id } = useParams()
     const { data: facility } = useGetSingleFacilityQuery(id)
     const MySwal = withReactContent(Swal);
-
     const [
         checkAvailability,
         { data, isLoading, error }

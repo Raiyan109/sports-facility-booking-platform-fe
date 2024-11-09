@@ -19,9 +19,9 @@ import FacilityDetails from "../pages/FacilityDetails";
 import AdminWelcome from "../layout/AdminWelcome";
 import MakeAdmin from "../layout/MakeAdmin";
 import BookingDetails from "../pages/BookingDetails";
-import AvailabilityChecking from "../pages/AvailabilityChecking";
 import UserWelcome from "../layout/UserWelcome";
 import Custom404 from "../components/Custom404";
+import AvailChecking2 from "../pages/AvailChecking2";
 
 
 const routes = createBrowserRouter([
@@ -51,7 +51,7 @@ const routes = createBrowserRouter([
   },
   {
     path: "/availability-checking/:id",
-    element: <AvailabilityChecking />,
+    element: <AvailChecking2 />,
   },
   {
     path: "/login",

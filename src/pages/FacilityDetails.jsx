@@ -86,7 +86,7 @@ const FacilityDetails = () => {
                                     <>
                                         <h1 className="text-grayText text-2xl">Description</h1>
                                         <h2 className="text-grayText/80 max-w-md">{facility?.data?.description}</h2>
-                                        <h2 className="text-grayText text-4xl">${facility?.data?.pricePerHour}</h2>
+                                        <h2 className="text-grayText text-4xl">${facility?.data?.pricePerHour}/hr</h2>
                                     </>
                                 )}
 
