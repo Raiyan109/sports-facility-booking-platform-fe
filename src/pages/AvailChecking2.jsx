@@ -16,6 +16,7 @@ import { toast } from "../components/ui/use-toast"
 import { cn } from "../lib/utils"
 import { format } from "date-fns"
 import { checkAvailabilityApi, useLazyCheckAvailabilityQuery } from "../redux/features/checkAvailability/checkAvailabilityApi"
+import BookingForm from "./BookingForm"
 
 // Zod Validation for Form
 const FormSchema = z.object({
@@ -31,7 +32,7 @@ const AvailChecking2 = () => {
     const { data: facility, isLoading } = useGetSingleFacilityQuery(id)
     const [
         checkAvailability,
-        { data, error }
+        { data, error, isLoading: isAvailabilityLoading }
     ] = useLazyCheckAvailabilityQuery();
 
     const form = useForm({
@@ -148,42 +149,43 @@ const AvailChecking2 = () => {
                             )}
                     </div>
                     <div className="flex-1 bg-primary/60 text-center flex">
-                        <div className="m-12 xl:m-16 w-full flex border border-secondary"
+                        <div className="m-12 xl:m-16 w-full flex flex-col border border-secondary"
                         >
-                            {/* Check Availability */}
-                            <div className=" rounded-2xl p-7">
-                                {/* flex flex-col gap-5 md:flex-row */}
-                                <div className="flex flex-col  gap-10 md:gap-28">
-                                    {/* <div className="flex-1">
+                            <div className="flex">
+                                {/* Check Availability */}
+                                <div className=" rounded-2xl p-7">
+                                    {/* flex flex-col gap-5 md:flex-row */}
+                                    <div className="flex flex-col  gap-10 md:gap-28">
+                                        {/* <div className="flex-1">
                                         <h2 className="text-grayText text-3xl max-w-[250px]">Check availability of this facility</h2>
                                     </div> */}
-                                    <div className="space-y-5">
-                                        {/* flex-1  */}
-                                        {/* Calender for check availability */}
-                                        <div className="flex flex-col gap-3 items-baseline">
-                                            <h2 className="flex gap-2 items-center text-grayText">
-                                                <CalendarDays className=" h-5 w-5" />
-                                                Select Date
-                                            </h2>
+                                        <div className="space-y-5">
+                                            {/* flex-1  */}
+                                            {/* Calender for check availability */}
+                                            <div className="flex flex-col gap-3 items-baseline">
+                                                <h2 className="flex gap-2 items-center text-grayText">
+                                                    <CalendarDays className=" h-5 w-5" />
+                                                    Select Date
+                                                </h2>
 
-                                            <Form {...form}>
-                                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                                                    <FormField
-                                                        control={form.control}
-                                                        name="date"
-                                                        render={({ field }) => (
-                                                            <FormItem className="flex flex-col">
-                                                                <Calendar
-                                                                    mode="single"
-                                                                    selected={field.value}
-                                                                    onSelect={field.onChange}
-                                                                    // disabled={(date) =>
-                                                                    //     date > new Date() || date < new Date("1900-01-01")
-                                                                    // }
-                                                                    disabled={isPastDay}
-                                                                    initialFocus
-                                                                />
-                                                                {/* <Popover>
+                                                <Form {...form}>
+                                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                                                        <FormField
+                                                            control={form.control}
+                                                            name="date"
+                                                            render={({ field }) => (
+                                                                <FormItem className="flex flex-col">
+                                                                    <Calendar
+                                                                        mode="single"
+                                                                        selected={field.value}
+                                                                        onSelect={field.onChange}
+                                                                        // disabled={(date) =>
+                                                                        //     date > new Date() || date < new Date("1900-01-01")
+                                                                        // }
+                                                                        disabled={isPastDay}
+                                                                        initialFocus
+                                                                    />
+                                                                    {/* <Popover>
                                                                     <PopoverTrigger asChild>
                                                                         <FormControl>
                                                                             <Button
@@ -207,47 +209,62 @@ const AvailChecking2 = () => {
                                                                         
                                                                     </PopoverContent>
                                                                 </Popover> */}
-                                                                {/* <FormDescription>
+                                                                    {/* <FormDescription>
                                 Your date of birth is used to calculate your age.
                             </FormDescription> */}
-                                                                <FormMessage />
-                                                            </FormItem>
-                                                        )}
-                                                    />
-                                                    <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Check availability</button>
-                                                </form>
-                                                {error?.data?.message}
-                                            </Form>
-                                        </div>
+                                                                    <FormMessage />
+                                                                </FormItem>
+                                                            )}
+                                                        />
+                                                        <button type="submit" className="bg-accent px-3 py-1 rounded-full text-grayText">Check availability</button>
+                                                    </form>
+                                                    {error?.data?.message}
+                                                </Form>
+                                            </div>
 
+                                        </div>
                                     </div>
+
                                 </div>
 
+                                {/* Availability Result section */}
+                                <div className=" rounded-2xl p-10 w-full col-span-2 order-4 lg:order-4 space-y-5" >
+                                    {availabilityData?.data?.length > 0 ? (
+                                        <div className="space-y-16">
+                                            <h2 className="text-grayText text-3xl">Available slot</h2>
+                                            <div className="flex gap-12 flex-wrap">
+                                                {/* Result of checking availability */}
+                                                {/* .filter(item => item?.isBooked === 'confirmed')? */}
+                                                {isAvailabilityLoading ? (
+                                                    <div>
+                                                        <p>Loading...</p>
+                                                    </div>) :
+                                                    (
+                                                        <div>
+                                                            {availabilityData?.data?.map((item) => (
+                                                                <div key={item?._id} className="border-secondary border hover:bg-accent hover:cursor-pointer rounded-2xl flex justify-center items-center gap-7  p-3">
+                                                                    <h1 className="text-grayText">{item?.startTime} </h1>
+                                                                    <h1 className="text-grayText">-</h1>
+                                                                    <h1 className="text-grayText">{item?.endTime}</h1>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )
+                                                }
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center justify-center flex-col gap-5">
+                                            <h1 className="text-grayText/40">Check availability above</h1>
+                                            <Meh className="text-grayText/40" size={40} />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
-                            {/* Availability Result section */}
-                            <div className=" rounded-2xl p-10 w-full col-span-2 order-4 lg:order-4 space-y-5" >
-                                {availabilityData?.data?.length > 0 ? (
-                                    <div className="space-y-16">
-                                        <h2 className="text-grayText text-3xl">Please select a slot</h2>
-                                        <div className="flex gap-12 flex-wrap">
-                                            {/* Result of checking availability */}
-                                            {/* .filter(item => item?.isBooked === 'confirmed')? */}
-                                            {availabilityData?.data?.map((item) => (
-                                                <div key={item?._id} className="border-secondary border hover:bg-accent hover:cursor-pointer rounded-2xl flex justify-center items-center gap-7  p-3">
-                                                    <h1 className="text-grayText">{item?.startTime} </h1>
-                                                    <h1 className="text-grayText">-</h1>
-                                                    <h1 className="text-grayText">{item?.endTime}</h1>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center justify-center flex-col gap-5">
-                                        <h1 className="text-grayText/40">Check availability above</h1>
-                                        <Meh className="text-grayText/40" size={40} />
-                                    </div>
-                                )}
+                            {/* Booking Form */}
+                            <div>
+                                <BookingForm facilityId={id} showDateForResult={showDateForResult} />
                             </div>
                         </div>
                     </div>
