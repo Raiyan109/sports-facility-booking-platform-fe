@@ -46,7 +46,6 @@ const Login = () => {
 
     if (credentials.email && credentials.password) {
       const res = await login(credentials).unwrap()
-      console.log(res);
 
       dispatch(setUser({ user: res.data, token: res.token }))
       setLoading(false);

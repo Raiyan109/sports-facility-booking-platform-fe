@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import { useGetSingleFacilityQuery } from "../redux/features/facility/facilityApi"
-import { ArrowRight, CalendarDays, CalendarIcon, Heart, MapPin, Star } from "lucide-react"
+import { ArrowRight, CalendarDays, CalendarIcon, Heart, MapPin, Meh, Star } from "lucide-react"
 import FacilityCardSkeleton from "../components/skeleton/FacilityCardSkeleton"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "../components/ui/form"
 import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popover"
@@ -49,8 +49,9 @@ const AvailChecking2 = () => {
         }
 
         try {
-            const result = await checkAvailabilityApi(availabilityQuery).unwrap();
+            const result = await checkAvailability(availabilityQuery).unwrap();
             setAvailabilityData(result)
+
             // success, any additional logic
         } catch (error) {
             console.log(error?.data?.message);
@@ -147,10 +148,10 @@ const AvailChecking2 = () => {
                             )}
                     </div>
                     <div className="flex-1 bg-primary/60 text-center flex">
-                        <div className="m-12 xl:m-16 w-full"
+                        <div className="m-12 xl:m-16 w-full flex border border-secondary"
                         >
                             {/* Check Availability */}
-                            <div className="border border-secondary rounded-2xl p-7">
+                            <div className=" rounded-2xl p-7">
                                 {/* flex flex-col gap-5 md:flex-row */}
                                 <div className="flex flex-col  gap-10 md:gap-28">
                                     {/* <div className="flex-1">
@@ -222,6 +223,31 @@ const AvailChecking2 = () => {
                                     </div>
                                 </div>
 
+                            </div>
+
+                            {/* Availability Result section */}
+                            <div className=" rounded-2xl p-10 w-full col-span-2 order-4 lg:order-4 space-y-5" >
+                                {availabilityData?.data?.length > 0 ? (
+                                    <div className="space-y-16">
+                                        <h2 className="text-grayText text-3xl">Please select a slot</h2>
+                                        <div className="flex gap-12 flex-wrap">
+                                            {/* Result of checking availability */}
+                                            {/* .filter(item => item?.isBooked === 'confirmed')? */}
+                                            {availabilityData?.data?.map((item) => (
+                                                <div key={item?._id} className="border-secondary border hover:bg-accent hover:cursor-pointer rounded-2xl flex justify-center items-center gap-7  p-3">
+                                                    <h1 className="text-grayText">{item?.startTime} </h1>
+                                                    <h1 className="text-grayText">-</h1>
+                                                    <h1 className="text-grayText">{item?.endTime}</h1>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center justify-center flex-col gap-5">
+                                        <h1 className="text-grayText/40">Check availability above</h1>
+                                        <Meh className="text-grayText/40" size={40} />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

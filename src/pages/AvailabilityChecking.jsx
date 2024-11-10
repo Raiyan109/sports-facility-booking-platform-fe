@@ -102,6 +102,7 @@ const AvailabilityChecking = () => {
 
     // Check Availability Form Handler
     async function onSubmit(data) {
+        console.log(data.data);
         const formattedDate = moment(data.date).format('YYYY-MM-DD')
         setShowDateForResult(formattedDate)
 
@@ -109,7 +110,7 @@ const AvailabilityChecking = () => {
             date: formattedDate,
             facility: id
         }
-
+        console.log(availabilityQuery);
         try {
             const result = await checkAvailability(availabilityQuery).unwrap();
             setAvailabilityData(result)
