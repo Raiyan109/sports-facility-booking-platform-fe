@@ -6,7 +6,6 @@ import { ArrowLeft, Clock, MapPin } from "lucide-react"
 const BookingDetails = () => {
     const { id } = useParams()
     const { data: booking, error, isLoading } = useGetSingleBookingQuery(id)
-    console.log(booking);
 
     return (
         <div className="py-32 max-w-[1480px] mx-auto container overflow-hidden px-10 space-y-12">

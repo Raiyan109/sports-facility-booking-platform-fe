@@ -10,7 +10,7 @@ const Facilities = () => {
 
 
     return (
-        <div className='py-16 md:py-32 space-y-14'>
+        <div className='py-16 md:py-32 space-y-14 px-5'>
 
             {/* <div className="flex justify-between items-center">
                 <h1 className='text-3xl md:text-5xl text-grayText font-bold text-center'> Our Facilities</h1>

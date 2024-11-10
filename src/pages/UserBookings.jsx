@@ -4,6 +4,7 @@ import moment from "moment";
 
 const UserBookings = () => {
     const { data: userBookings, isLoading } = useGetUserBookingsQuery();
+
     const [cancelBooking] = useCancelBookingMutation();
 
     const handleCancelBooking = (bookingId) => {
