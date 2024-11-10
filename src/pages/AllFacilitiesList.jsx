@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Search } from "lucide-react"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
@@ -6,17 +8,15 @@ import { Input } from "../components/ui/input"
 import { useGetFacilitiesQuery } from "../redux/features/facility/facilityApi"
 import AllFacilityList from "./AllFacilityList"
 import { Slider } from "../components/ui/slider"
+import { Switch } from "../components/ui/switch"
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
 } from "../components/ui/pagination"
 import { useEffect, useState } from "react"
-import FacilityCardSkeleton from "../components/skeleton/FacilityCardSkeleton"
+
 
 
 const AllFacilitiesList = () => {
@@ -26,6 +26,7 @@ const AllFacilitiesList = () => {
     const [filteredItems, setFilteredItems] = useState([]);
     const [titles, setTitles] = useState([])
     const [selectedLocations, setSelectedLocations] = useState([]);
+    const [showAvailableOnly, setShowAvailableOnly] = useState(false);
 
     // States for pagination
     const [currentPage, setCurrentPage] = useState(1)
@@ -44,6 +45,11 @@ const AllFacilitiesList = () => {
             }
         });
     };
+
+    // Availability Filter
+    // const handleAvailabilityChange = () => {
+    //     setShowAvailableOnly(!showAvailableOnly);
+    // };
 
     // Search filter
     const handleChange = (e) => {
@@ -66,7 +72,7 @@ const AllFacilitiesList = () => {
 
     useEffect(() => {
         filterItems();
-    }, [searchText, facilities, minPrice, maxPrice, selectedLocations]);
+    }, [searchText, facilities, minPrice, maxPrice, selectedLocations, showAvailableOnly]);
 
     // All filter logic
     const filterItems = () => {
@@ -89,6 +95,11 @@ const AllFacilitiesList = () => {
         tempItems = tempItems.filter(
             (item) => item.pricePerHour >= minPrice && item.pricePerHour <= maxPrice
         );
+
+        // Apply availability filter
+        if (showAvailableOnly) {
+            tempItems = tempItems.filter(item => !item.isDeleted);
+        }
 
         setFilteredItems(tempItems);
     };
@@ -136,15 +147,18 @@ const AllFacilitiesList = () => {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1 bg-secondary  w-full md:w-72 rounded-2xl p-4 space-y-4">
+                    <div className="flex-1 bg-secondary h-fit w-full md:w-72 rounded-2xl p-4 space-y-4">
+                        {/* Filter header */}
                         <div className="flex justify-between gap-32 pb-2 border-b">
                             <h1 className="text-grayText text-md">Filter</h1>
                             <h1 className="text-primary font-bold text-md cursor-pointer" onClick={handleReset}>Reset</h1>
                         </div>
+                        {/* Price filter */}
                         <div className="flex flex-col gap-3">
                             <h1 className="text-grayText text-md font-bold">Price</h1>
                             <Slider defaultValue={[minPrice, maxPrice]} max={1000} step={1} onValueChange={handlePriceChange} />
                         </div>
+                        {/* Location filter */}
                         <div className="flex flex-col gap-3">
                             <h1 className="text-grayText text-md font-bold">Location</h1>
                             {uniqueLocations.map((location, i) => (
@@ -158,10 +172,25 @@ const AllFacilitiesList = () => {
                                 </div>
                             ))}
                         </div>
+                        {/* Avalability filter */}
+                        <div className="flex  gap-3">
+                            <h1 className="text-grayText text-md font-bold">Available</h1>
+                            <Switch
+                                checked={showAvailableOnly}
+                                onCheckedChange={setShowAvailableOnly}
+                            />
+                            {/* <input
+                                type="checkbox"
+                                checked={showAvailableOnly}
+                                onChange={handleAvailabilityChange}
+                            /> */}
+                        </div>
+
                     </div>
                     <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 flex-2'>
                         {
-                            currentResults?.length > 0 ? (currentResults?.filter(facility => facility?.isDeleted === false)?.map(facility => <AllFacilityList
+                            // currentResults?.filter(facility => facility?.isDeleted === false)
+                            currentResults?.length > 0 ? (currentResults?.map(facility => <AllFacilityList
                                 key={facility._id}
                                 facility={facility}
                             />)) : (

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Heart, MapPin, Star } from "lucide-react";
 
 const Facility = ({ facility }) => {
+    console.log(facility);
+
     const [openModal, setOpenModal] = useState(false)
     const [facilityIdForModal, setFacilityIdForModal] = useState('')
 
@@ -59,7 +61,7 @@ const Facility = ({ facility }) => {
                 </div> */}
                 <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5">
                     <MapPin size={20} />
-                    <p className="text-sm">{facility?.location}</p>
+                    <p className="text-sm">{facility?.isDeleted !== facility?.location}</p>
                 </div>
                 <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 right-5">
                     <Heart size={20} />

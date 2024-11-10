@@ -14,13 +14,15 @@ const AllFacilityList = ({ facility }) => {
         <div className="rounded-2xl border border-secondary shadow-xl bg-primary/40">
             <div className="relative">
                 <img src={facility?.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500" />
-                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5">
+                {facility?.isDeleted === false ? (<div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5">
                     <MapPin size={20} />
                     <p className="text-sm">{facility?.location}</p>
-                </div>
-                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 right-5">
+                </div>) : (
+                    <div className="flex items-center gap-1 bg-accent text-grayText p-2 rounded-full absolute top-4 left-5">Not available</div>
+                )}
+                {facility?.isDeleted === false && <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 right-5">
                     <Heart size={20} />
-                </div>
+                </div>}
                 <div className="flex flex-col justify-between p-6 space-y-8">
                     <div className="space-y-2">
                         <div className="flex justify-between items-center">
