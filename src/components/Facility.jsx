@@ -57,7 +57,7 @@ const Facility = ({ facility }) => {
                         </div>
                     </div>
                 </div> */}
-                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5 ">
+                <div className="flex items-center gap-1 bg-grayText text-primary p-2 rounded-full absolute top-4 left-5">
                     <MapPin size={20} />
                     <p className="text-sm">{facility?.location}</p>
                 </div>

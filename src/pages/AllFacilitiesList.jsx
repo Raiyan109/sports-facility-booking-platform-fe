@@ -25,18 +25,30 @@ const AllFacilitiesList = () => {
     const [maxPrice, setMaxPrice] = useState(1000)
     const [filteredItems, setFilteredItems] = useState([]);
     const [titles, setTitles] = useState([])
+    const [selectedLocations, setSelectedLocations] = useState([]);
 
     // States for pagination
     const [currentPage, setCurrentPage] = useState(1)
-    const [postPerPage] = useState(2)
+    const [postPerPage] = useState(4)
     const { data: facilities, error, isLoading } = useGetFacilitiesQuery()
+
+    // Location filter
+    const uniqueLocations = [...new Set(facilities?.data?.map(item => item.location))];
+
+    const handleLocationChange = (location) => {
+        setSelectedLocations(prev => {
+            if (prev.includes(location)) {
+                return prev.filter(loc => loc !== location);
+            } else {
+                return [...prev, location];
+            }
+        });
+    };
 
     // Search filter
     const handleChange = (e) => {
         setSearchText(e.currentTarget.value.toLowerCase());
     };
-
-
 
     // Range filter handler
     const handlePriceChange = (values) => {
@@ -54,7 +66,7 @@ const AllFacilitiesList = () => {
 
     useEffect(() => {
         filterItems();
-    }, [searchText, facilities, minPrice, maxPrice]);
+    }, [searchText, facilities, minPrice, maxPrice, selectedLocations]);
 
     // All filter logic
     const filterItems = () => {
@@ -68,14 +80,19 @@ const AllFacilitiesList = () => {
             );
         }
 
+        // Apply location filter
+        if (selectedLocations.length > 0) {
+            tempItems = tempItems.filter((item) => selectedLocations.includes(item.location));
+        }
+
         // Apply price filter
         tempItems = tempItems.filter(
             (item) => item.pricePerHour >= minPrice && item.pricePerHour <= maxPrice
         );
 
         setFilteredItems(tempItems);
-
     };
+
 
     // Loading
     // if (isLoading) {
@@ -87,7 +104,7 @@ const AllFacilitiesList = () => {
     // Logic for pagination
     const lastPostIndex = currentPage * postPerPage
     const firstPostIndex = lastPostIndex - postPerPage
-    const currentResults = titles.slice(firstPostIndex, lastPostIndex);
+    const currentResults = titles?.slice(firstPostIndex, lastPostIndex);
 
 
     const pages = []
@@ -119,7 +136,7 @@ const AllFacilitiesList = () => {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1 bg-secondary h-56 w-full md:w-72 rounded-2xl p-4 space-y-4">
+                    <div className="flex-1 bg-secondary  w-full md:w-72 rounded-2xl p-4 space-y-4">
                         <div className="flex justify-between gap-32 pb-2 border-b">
                             <h1 className="text-grayText text-md">Filter</h1>
                             <h1 className="text-primary font-bold text-md cursor-pointer" onClick={handleReset}>Reset</h1>
@@ -128,10 +145,23 @@ const AllFacilitiesList = () => {
                             <h1 className="text-grayText text-md font-bold">Price</h1>
                             <Slider defaultValue={[minPrice, maxPrice]} max={1000} step={1} onValueChange={handlePriceChange} />
                         </div>
+                        <div className="flex flex-col gap-3">
+                            <h1 className="text-grayText text-md font-bold">Location</h1>
+                            {uniqueLocations.map((location, i) => (
+                                <div key={i} className="flex items-center gap-2 text-grayText">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedLocations.includes(location)}
+                                        onChange={() => handleLocationChange(location)}
+                                    />
+                                    <label>{location}</label>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 flex-2'>
                         {
-                            currentResults.length > 0 ? (currentResults?.filter(facility => facility?.isDeleted === false)?.map(facility => <AllFacilityList
+                            currentResults?.length > 0 ? (currentResults?.filter(facility => facility?.isDeleted === false)?.map(facility => <AllFacilityList
                                 key={facility._id}
                                 facility={facility}
                             />)) : (
@@ -151,15 +181,17 @@ const AllFacilitiesList = () => {
                             <PaginationPrevious href="#" />
                         </PaginationItem> */}
                         <PaginationItem>
-                            {pages.map((page, i) => {
-                                return (
-                                    <PaginationLink key={i}
-                                        onClick={() => setCurrentPage(page)}
-                                        className={page == currentPage ? "active" : ""}
+                            <div className="flex gap-5">
+                                {pages.map((page, i) => {
+                                    return (
+                                        <PaginationLink key={i}
+                                            onClick={() => setCurrentPage(page)}
+                                            className={page == currentPage ? "active" : ""}
 
-                                        href="#">{page}</PaginationLink>
-                                )
-                            })}
+                                            href="#">{page}</PaginationLink>
+                                    )
+                                })}
+                            </div>
                         </PaginationItem>
                         {/* <PaginationItem>
                             <PaginationEllipsis />
