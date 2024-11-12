@@ -5,6 +5,7 @@ const baseQuery = fetchBaseQuery({
     baseUrl: 'https://sports-facility-booking-platform-be.vercel.app/api',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.token
+        console.log(token, 'token from baseapi');
 
         if (token) {
             headers.set('authorization', `Bearer ${token}`)

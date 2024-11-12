@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import { useCancelBookingMutation, useGetAllBookingsQuery } from "../redux/features/booking/bookingApi"
+
+import { useGetAllBookingsQuery } from "../redux/features/booking/bookingApi"
 import moment from "moment"
 const AllBookings = () => {
     const { data: bookings } = useGetAllBookingsQuery()

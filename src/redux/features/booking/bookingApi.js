@@ -1,6 +1,6 @@
 import { baseApi } from "../../baseApi";
 
-export const bookingApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'] }).injectEndpoints({
+export const bookingApi = baseApi.enhanceEndpoints({ addTagTypes: ['Bookings'] }).injectEndpoints({
     endpoints: (builder) => ({
         getAllBookings: builder.query({
             query: () => '/bookings',

@@ -13,6 +13,10 @@ export const facilityApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'
             }),
             providesTags: ['Facilities']
         }),
+        getPopularFacilities: builder.query({
+            query: () => '/facility/popular-facilities',
+            providesTags: ['Facilities']
+        }),
         createFacility: builder.mutation({
             query: (facility) => ({
                 url: '/facility',
@@ -43,4 +47,4 @@ export const facilityApi = baseApi.enhanceEndpoints({ addTagTypes: ['Facilities'
     })
 })
 
-export const { useGetFacilitiesQuery, useCreateFacilityMutation, useDeleteFacilityMutation, useGetSingleFacilityQuery, useUpdateFacilityMutation, useGetAverageRatingsQuery } = facilityApi
+export const { useGetFacilitiesQuery, useCreateFacilityMutation, useDeleteFacilityMutation, useGetSingleFacilityQuery, useUpdateFacilityMutation, useGetAverageRatingsQuery, useGetPopularFacilitiesQuery } = facilityApi

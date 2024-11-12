@@ -33,7 +33,7 @@ body {
 
 @layer utilities {
     .booking-btn {
-        @apply w-fit bg-accent hover:bg-[#8117be] font-medium text-xl py-3 px-8 rounded-full ease-in-out duration-100
+        @apply w-fit bg-accent hover:bg-[#8117be] font-medium text-xl py-3 px-8 rounded-full ease-in-out duration-100 text-white
     }
 }
 

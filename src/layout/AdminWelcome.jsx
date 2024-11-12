@@ -6,6 +6,7 @@ import { useGetBookingTrendsQuery } from "../redux/features/booking/bookingApi"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useGetAverageRatingsQuery } from "../redux/features/facility/facilityApi";
 import RadarAverageRating from "../components/charts/RadarAverageRating";
+import PopularFacilities from "../components/charts/PopularFacilities";
 
 const AdminWelcome = () => {
     // const user = useSelector(useCurrentUser)
@@ -13,8 +14,6 @@ const AdminWelcome = () => {
     const { data: userInfo } = useGetUserQuery()
     const { data: bookingTrends } = useGetBookingTrendsQuery()
     const { data: averageRatings } = useGetAverageRatingsQuery()
-    console.log(bookingTrends);
-
 
     return (
         <div className="py-12 pl-1 md:pl-44 lg:pl-56">
@@ -45,12 +44,21 @@ const AdminWelcome = () => {
                         </div>
                     </div>
 
-                    <div className=" bg-orange-200 border border-orange-300 rounded-xl  ml-2 p-6"
+                    <div className=" bg-orange-200 border border-orange-300 rounded-xl  ml-2 p-6 w-full"
 
                     >
                         <div>
                             <h2 className="text-2xl py-5">Average Rating of Facilities</h2>
                             <RadarAverageRating averageRatings={averageRatings} />
+                        </div>
+                    </div>
+
+                    <div className=" bg-orange-200 border border-orange-300 rounded-xl  ml-2 p-6 w-full"
+
+                    >
+                        <div>
+                            <h2 className="text-2xl py-5">Popular Facilities</h2>
+                            <PopularFacilities />
                         </div>
                     </div>
                 </div>
